@@ -1,11 +1,9 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -35,14 +33,16 @@ Bundle 'pythoncomplete'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 
-set vb
-set t_vb=
-filetype plugin indent on     " required!
 
-filetype plugin on
+filetype plugin indent on
 syntax enable
+
 set background=dark
 colorscheme solarized
+
+" Shh
+set vb
+set t_vb=
 
 let g:Powerline_theme = 'solarized256'
 
@@ -113,25 +113,7 @@ let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
 " (incompatible with g:clang_auto_select=0, using the above)
 let g:SuperTabContextDefaultCompletionType='<c-x><c-u><c-p>'
 
-" Vim UI {
-
-    set encoding=utf-8
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        color solarized                 " Load a colorscheme
-    endif
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="high"
-        let g:solarized_visibility="high"
-    set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
-
-    if has('cmdline_info')
-        set ruler                   " Show the ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-        set showcmd                 " Show partial commands in status line and
-                                    " Selected characters/lines in visual mode
-    endif
 
     set laststatus=2
     set shortmess+=filmnrxoOtT
