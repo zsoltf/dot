@@ -1,0 +1,10 @@
+.DS_Store
+# Thumbnails
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+.*.sw[a-z]
+*.un~
+Session.vim
