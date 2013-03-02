@@ -21,5 +21,4 @@ alias v="vim"
 
 # Source
 
-source /usr/local/bin/virtualenvwrapper.sh
 source /usr/bin/virtualenvwrapper.sh

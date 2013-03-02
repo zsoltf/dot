@@ -1,7 +1,6 @@
+# set your user tokens as enivornment variables, such as ~/.secrets
 [http]
   sslVerify = false
-=======
-# set your user tokens as enivornment variables, such as ~/.secrets
 [color]
   ui = true
 [color "branch"]
