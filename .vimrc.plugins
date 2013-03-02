@@ -1,3 +1,9 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Vimrc Plugins
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -71,3 +77,5 @@ endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 Bundle 'Shougo/neosnippet'
+
+filetype plugin indent on
