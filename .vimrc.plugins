@@ -1,0 +1,83 @@
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'tpope/vim-rails.git'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+Bundle 'Rip-Rip/clang_complete'
+let g:clang_complete_auto = 1
+let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_user_options='-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -D__IPHONE_OS_VERSION_MIN_REQUIRED=60100'
+let g:clang_use_library=1
+let g:clang_complete_copen=1
+let g:clang_complete_macros=1
+let g:clang_complete_patterns=0
+" " Avoids lame path cache generation and other unknown sources for includes 
+let g:clang_auto_user_options=''
+let g:clang_memory_percent=70
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+" The single one that works with clang_complete
+let g:clang_snippets_engine='clang_complete'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized'
+
+Bundle 'ervandew/supertab'
+let g:SuperTabLongestEnhanced=1
+let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
+let g:SuperTabContextDefaultCompletionType='<c-x><c-u><c-p>'
+
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'SirVer/ultisnips'
+Bundle 'jgoulah/cocoa.vim'
+
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_theme = 'solarized256'
+
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = ',t'
+
+Bundle 'vim-scripts/sessionman.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'klen/python-mode'
+Bundle 'python.vim'
+Bundle 'python_match.vim'
+Bundle 'pythoncomplete'
+
+Bundle 'Shougo/neocomplcache'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_smart_case = 1
+
+" default # of completions is 100, that's crazy
+let g:neocomplcache_max_list = 5
+
+" words less than 3 letters long aren't worth completing
+let g:neocomplcache_auto_completion_start_length = 3
+
+" Map standard Ctrl-N completion to Cmd-Space
+" inoremap <D-Space> <C-n>
+
+" This makes sure we use neocomplcache completefunc instead of 
+" the one in rails.vim, otherwise this plugin will crap out
+let g:neocomplcache_force_overwrite_completefunc = 1
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+  let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+Bundle 'Shougo/neosnippet'
