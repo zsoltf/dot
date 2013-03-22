@@ -14,8 +14,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Path
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:
-export VIMRUNTIME=/usr/share/vim/vim73 #ios
+#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:
+export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:   # local first
+#export VIMRUNTIME=/usr/share/vim/vim73                     # ios
+export VIMRUNTIME=/usr/local/share/vim/vim73                # brew vim
 
 # Alias
 
@@ -25,6 +27,8 @@ alias v="vim"
 alias sc="screen -U -O -R -s /bin/zsh"
 alias p="python"
 alias dj="python manage.py"
+alias tm="tmux"
+alias tma="tmux att"
 
 # Source
 
