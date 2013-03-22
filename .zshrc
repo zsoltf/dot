@@ -1,16 +1,31 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# ZSH
 
-ZSH_THEME="random"
+ZSH=$HOME/.zsh
+#ZSH_THEME="af-magic"
+#ZSH_THEME="kardan"
+ZSH_THEME="sunrise"
+#ZSH_THEME="terminalparty"
+#ZSH_THEME="dstufft"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+DISABLE_AUTO_UPDATE="true"
 
-# Plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
+plugins=(git compleat django last-working-dir lol osx python pip rsync vi-mode virtualenvwrapper)
 source $ZSH/oh-my-zsh.sh
 
+# Path
+
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:
+export VIMRUNTIME=/usr/share/vim/vim73 #ios
+
+# Alias
+
+alias zshconfig="vim ~/.zshrc"
+alias vrc="vim ~/.vimrc"
+alias v="vim"
+alias sc="screen -U -O -R -s /bin/zsh"
+alias p="python"
+alias dj="python manage.py"
+
+# Source
+
+#source /usr/bin/virtualenvwrapper.sh
