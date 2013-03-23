@@ -27,8 +27,8 @@ alias v="vim"
 alias sc="screen -U -O -R -s /bin/zsh"
 alias p="python"
 alias dj="python manage.py"
-alias tm="tmux"
-alias tma="tmux att"
+alias tm="TERM=screen-256color tmux -2u"
+alias tma="TERM=screen-256color tmux -2u att"
 
 # Source
 
