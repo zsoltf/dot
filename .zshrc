@@ -1,7 +1,7 @@
 # ZSH
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="af-magic"
+ZSH_THEME="kardan"
 
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -18,6 +18,7 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:
 alias zshconfig="vim ~/.zshrc"
 alias vrc="vim ~/.vimrc"
 alias v="vim"
+alias sc="screen -U -O -R -s /bin/zsh"
 
 # Source
 
