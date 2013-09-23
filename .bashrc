@@ -11,9 +11,11 @@ PS1="\u: [\W] $ "
 export CLICOLOR=1
 export LSCOLORS=CxFxCxDxBxegedabagaced
 
+export EDITOR='vim'
+
 # Startup scripts
 
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # Shortcuts
 
@@ -44,3 +46,5 @@ read -sn 1
 kill ${ql_pid}) > /dev/null 2>&1
 }
 # Mac End
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

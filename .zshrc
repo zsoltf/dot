@@ -1,6 +1,6 @@
 # ZSH
 
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.zsh
 ZSH_THEME="af-magic"
 
 DISABLE_AUTO_UPDATE="true"
@@ -11,14 +11,20 @@ source $ZSH/oh-my-zsh.sh
 
 # Path
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:
+export EDITOR='vim'
 
 # Alias
 
 alias zshconfig="vim ~/.zshrc"
 alias vrc="vim ~/.vimrc"
 alias v="vim"
+alias tree="tree -Ch"
+alias t='byobu'
+alias tmux='byobu'
 
 # Source
 
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
