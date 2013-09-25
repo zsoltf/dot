@@ -28,3 +28,4 @@ alias tmux='byobu'
 #source /usr/local/bin/virtualenvwrapper.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=/usr/local/bin:/Users/zsolt/.rvm/gems/ruby-2.0.0-p247/bin:/Users/zsolt/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/zsolt/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/zsolt/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin::/Users/zsolt/.rvm/bin
