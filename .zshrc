@@ -21,7 +21,6 @@ alias vrc="vim ~/.vimrc"
 alias v="vim"
 alias tree="tree -Ch"
 alias t='byobu'
-alias tmux='byobu'
 
 # Source
 
