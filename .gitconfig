@@ -104,7 +104,7 @@
 [core]
   autocrlf = false
   editor = vim
-  excludesfile = ~/.gitignore.global
+	excludesfile = /Users/zsolt/.gitignore.global
 [advice]
   statusHints = false
 [diff]
@@ -116,5 +116,11 @@
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 [user]
-  name = Zsolt Fekete
-  email = zsoltf@me.com
+	name = Zsolt Fekete
+	email = zsoltf@me.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
