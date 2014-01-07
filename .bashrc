@@ -16,6 +16,15 @@ alias la='ls -a'
 alias vrc='vim ~/.vimrc'
 alias c='clear'
 
+alias b="bundle"
+alias bi="b install --path vendor"
+alias bil="bi --local"
+alias bu="b update"
+alias be="b exec"
+alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
+alias ber="be rspec"
+alias berp="be rake db:test:prepare && ber"
+
 # vi
 export EDITOR='vim'
 set -o vi
@@ -26,9 +35,7 @@ export CLICOLOR=1
 export LSCOLORS=CxFxCxDxBxegedabagaced
 
 # paths
-export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/Users/zsolt/perl5";
-export PERL_MB_OPT="--install_base /Users/zsolt/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/Users/zsolt/perl5";
-export PERL5LIB="/Users/zsolt/perl5/lib/perl5:$PERL5LIB";
-export PATH="/Users/zsolt/perl5/bin:$PATH";
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rbenv/bin"
+eval "$(rbenv init -)"
+
+eval `dircolors ~/.dircolors/dircolors.256dark`
