@@ -2,6 +2,14 @@
 export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
+# aliases
+alias df="dfc"
+alias l="ls++"
+alias ll="ls++ -a"
+alias img="gotermimg -u=true"
+alias vb="vim ~/.bashrc.custom"
+alias du="cdu -i -d h"
+
 # bundler
 alias b="bundle"
 alias bi="b install --path vendor"
@@ -32,3 +40,16 @@ alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'
 export DISPLAY=:1.5
 
 export PS1='λ '
+
+eval $(dircolors -b $HOME/.config/ls_colors/LS_COLORS)
+
+# go
+export GOPATH="$HOME/gopath"
+export PATH="$GOPATH/bin:$PATH"
+
+# vim
+export EDITOR="vim"
+
+# fasd
+eval "$(fasd --init auto)"
+alias v='f -t -e vim -b viminfo'
