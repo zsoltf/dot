@@ -48,12 +48,6 @@ fi
 ```
 # Create splits and vertical splits
 bind-key ^V split-window -h
-
-# Pane resize in all four directions using vi bindings.
-bind-key J resize-pane -D
-bind-key K resize-pane -U
-bind-key H resize-pane -L
-bind-key L resize-pane -R
 ```
 #### settings
 ```
