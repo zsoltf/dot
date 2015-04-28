@@ -45,12 +45,12 @@ fi
 
 ## tmux
 #### shortcuts
-```
+```bash
 # Create splits and vertical splits
 bind-key ^V split-window -h
 ```
 #### settings
-```
+```bash
 # prefix
 unbind C-b
 set -g prefix C-s
@@ -75,7 +75,7 @@ set -g mouse-select-window on
 ```
 #### statusline
 powerline glyphs with molokai theme
-```
+```bash
 # color scheme molokai
 set -g status on
 set -g status-interval 2
