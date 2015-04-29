@@ -6,7 +6,13 @@ personal dotfiles branched by machine
 
 ## bash
 #### aliases
-.bashrc.custom
+##### bin
+- ls++
+- dfc
+- cdu
+- gotermimg
+
+#####.bashrc.custom
 ```bash
 # aliases
 alias df="dfc"
