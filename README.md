@@ -5,7 +5,6 @@ personal dotfiles branched by machine
 
 
 ## bash
-#### aliases
 ##### bin
 - ls++
 - dfc
