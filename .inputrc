@@ -1,0 +1,4 @@
+Control-n: menu-complete
+Control-p: menu-complete-backward
+
+set completion-display-width 1
