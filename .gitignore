@@ -10,3 +10,5 @@
 !.vim
 !.config
 !.inputrc
+!.bashrc.custom
+!.bashrc.aliases

@@ -1,31 +1,9 @@
 #############
 # Aliases
 #############
-
-alias df="dfc"
-alias l="ls++"
-alias ll="ls++ -a"
-alias img="gotermimg -u=true"
-alias vb="vim ~/.bashrc.custom"
-alias du="cdu -i -d h"
-
-# bundler
-alias b="bundle"
-alias bi="b install --path vendor"
-alias bil="bi --local"
-alias bu="b update"
-alias be="b exec"
-alias binit="bi && b package && echo vendor/ruby >> .gitignore"
-alias ber="be rspec"
-alias berp="be rake db:test:prepare && ber"
-
-# dropbox
-alias drop="python ~/.dropbox/dropbox.py"
-
-# for xvfb
-alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'
-export DISPLAY=:1.5
-
+if [ -f ~/.bashrc.aliases ]; then
+  source ~/.bashrc.aliases
+fi
 
 #############
 # PROMPT
@@ -66,6 +44,10 @@ export PATH="$GOPATH/bin:$PATH"
 #############
 # UTILS
 #############
+
+# xvfb
+alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'
+export DISPLAY=:1.5
 
 #dircolors
 eval $(dircolors -b $HOME/.dircolors)
