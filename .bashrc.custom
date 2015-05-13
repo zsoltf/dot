@@ -31,7 +31,7 @@ fi
 
 prompt() {
   local COL=$(expr `tput cols` - ${#PWD})
-  red="\e[0;91mλ\e[0m "
+  red="\e[31mλ\e[0m "
   PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red; else echo 'λ'; fi) '
   tput sc
   tput cuf $COL
