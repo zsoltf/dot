@@ -89,16 +89,14 @@ alias v='f -t -e vim -b viminfo'
 export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
-# fbterm
-if [[ $TERM=="linux" ]]; then
-  export _term=fbterm
-else
-  export _term=xterm-256color
-fi
-
 # always open tmux
 if ( tmux list-sessions ); then
-  TERM=$_term tmux -2u att 2> /dev/null
+  tmux -2u att 2> /dev/null
 else
-  TERM=$_term tmux -2u new -s trusty
+  # set the right term when launching tmux
+  if [[ -n "$SSH_TTY" ]]; then
+    TERM=xterm tmux -2u new -s trusty
+  else
+    TERM=fbterm tmux -2u new -s trusty
+  fi
 fi
