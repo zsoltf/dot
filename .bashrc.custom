@@ -1,6 +1,7 @@
 #############
 # Aliases
 #############
+
 if [ -f ~/.bashrc.aliases ]; then
   source ~/.bashrc.aliases
 fi
@@ -8,6 +9,25 @@ fi
 #############
 # PROMPT
 #############
+
+#function prompt_right() {
+#  echo -e "\033[1;30m$(echo ${PWD})\033[0m"
+#}
+#
+#function prompt_left() {
+#  if [[ $last_command == 0 ]]
+#  then
+#    echo -e "\033[1;30;42mλ\033[0m"
+#  else
+#    echo -e "\033[1;41mλ\033[0m"
+#  fi
+#}
+#
+#function prompt() {
+#    last_command=$?
+#    compensate=4
+#    PS1=$(printf "%*s%s " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+#}
 
 prompt() {
   local COL=$(expr `tput cols` - ${#PWD})
@@ -29,6 +49,15 @@ export EDITOR="vim"
 
 # disable flow control
 stty -ixon
+
+# completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+
+# history
+HISTCONTROL=ignoreboth
+shopt -s histappend
 
 #############
 # PATH
@@ -60,9 +89,16 @@ alias v='f -t -e vim -b viminfo'
 export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
+# fbterm
+if [[ $TERM=="linux" ]]; then
+  export _term=fbterm
+else
+  export _term=xterm-256color
+fi
+
 # always open tmux
 if ( tmux list-sessions ); then
-  tmux -2u att 2> /dev/null
+  TERM=$_term tmux -2u att 2> /dev/null
 else
-  tmux -2u new -s trusty
+  TERM=$_term tmux -2u new -s trusty
 fi
