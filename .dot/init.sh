@@ -73,13 +73,13 @@ fi
 if ! installed gotermimg; then
   # display images and even gifs in the terminal
   # 175mb of go is worth it
-  sudo apt-get install golang
+  sudo apt-get -y install golang
   go get github.com/moshen/gotermimg/...
 fi
 
 # dfc
 if ! installed dfc; then
-  sudo apt-get install dfc
+  sudo apt-get -y install dfc
 fi
 
 # cdu
@@ -96,14 +96,14 @@ fi
 
 # fbterm
 if ! installed fbterm; then
-  sudo apt-get install fbterm
+  sudo apt-get -y install fbterm
   sudo ln -s ~/.fbtermrc /root/
   echo "done"
 fi
 
 # fim
 if ! installed fim; then
-  sudo apt-get install libjpeg-dev libgif-dev bison flex
+  sudo apt-get -y install libjpeg-dev libgif-dev bison flex
   wget http://download.savannah.nongnu.org/releases/fbi-improved/fim-0.5-trunk.tar.gz
   tar xf fim-0.5-trunk.tar.gz
   cd fim*

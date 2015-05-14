@@ -13,4 +13,5 @@
 !.bashrc.custom
 !.bashrc.aliases
 !.fbtermrc
-!.dot.init
+!.dot/
+!.dot/*
