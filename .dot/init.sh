@@ -96,8 +96,9 @@ fi
 
 # fbterm
 if ! installed fbterm; then
-  sudo apt-get -y install fbterm
+  sudo apt-get -y install fbterm rungetty
   sudo ln -s ~/.fbtermrc /root/
+  sudo cp ~/.dot/tty1.override /etc/init/
   echo "done"
 fi
 
