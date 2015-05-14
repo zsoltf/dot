@@ -76,10 +76,10 @@ export PATH="$GOPATH/bin:$PATH"
 
 # xvfb
 alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'
-export DISPLAY=:1.5
+#export DISPLAY=:1.5
 
 #dircolors
-eval $(dircolors -b $HOME/.dircolors)
+eval $(dircolors -b $HOME/.config/ls_colors/LS_COLORS)
 
 # fasd
 eval "$(fasd --init auto)"
