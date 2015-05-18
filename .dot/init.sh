@@ -120,5 +120,12 @@ cd ~
 if (git status > /dev/null); then
   echo "config already cloned"
 else
-  git clone https://github.com/zsoltf/dot ~
+  git init
+  git remote add falcon git@falcon:dot.git
+  git remote add github git@github.com:zsoltf/dot.git
+  if (ping falcon); then
+    git pull falcon ubuntu
+  else
+    git pull github ubuntu
+  fi
 fi
