@@ -70,6 +70,9 @@ export PATH="$PATH:$HOME/bin"
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
 
+# Secrets
+[ -f ~/.config/.secrets ] && source ~/.config/.secrets
+
 #############
 # UTILS
 #############

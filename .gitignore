@@ -9,6 +9,7 @@
 !.gitconfig
 !.vim
 !.config
+.config/.secrets
 !.inputrc
 !.bashrc.custom
 !.bashrc.aliases

@@ -8,6 +8,8 @@ alias ll="ls++ -a"
 alias img="gotermimg -u=true"
 alias vb="vim ~/.bashrc.custom"
 alias du="cdu -i -d h"
+alias c="clear;"
+alias g="git"
 
 # bundler
 alias b="bundle"
