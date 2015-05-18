@@ -56,6 +56,8 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 # history
+HISTSIZE=10000
+HISTFILESIZE=500000
 HISTCONTROL=ignoreboth
 shopt -s histappend
 
@@ -98,8 +100,8 @@ if ( tmux list-sessions ); then
 else
   # set the right term when launching tmux
   if [[ -n "$SSH_TTY" ]]; then
-    TERM=xterm tmux -2u new -s trusty
+    TERM=xterm tmux -2u new -s $HOSTNAME
   else
-    TERM=fbterm tmux -2u new -s trusty
+    TERM=fbterm tmux -2u new -s $HOSTNAME
   fi
 fi
