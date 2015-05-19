@@ -1,3 +1,4 @@
 [submodule ".vim"]
 	path = .vim
 	url = git@falcon:dot-vim.git
+	branch = master
