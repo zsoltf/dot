@@ -1,6 +1,3 @@
 [submodule ".vim"]
 	path = .vim
 	url = https://github.com/zsoltf/dot-vim.git
-[submodule ".config/ls_colors"]
-	path = .config/ls_colors
-	url = https://github.com/zsoltf/LS_COLORS
