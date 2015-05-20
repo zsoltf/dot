@@ -11,7 +11,7 @@ alias du="cdu -i -d h"
 alias c="clear;"
 alias g="git"
 alias gc="git commit -m"
-alias apt="sudo apt-get install"
+alias apt="sudo apt-get"
 
 # bundler
 alias b="bundle"
