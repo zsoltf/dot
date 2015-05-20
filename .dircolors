@@ -7,12 +7,11 @@
 
 # core {{{1
 BLK                   38;5;68
-CAPABILITY            38;5;17
+CAPABILITY            38;5;193
 CHR                   38;5;113;1
-#DIR                   38;5;30
-DIR                   38;5;111
+DIR                   38;5;110
 DOOR                  38;5;127
-EXEC                  38;5;208;1
+EXEC                  00;38;5;208
 FIFO                  38;5;126
 FILE                  38;5;253
 LINK                  target
@@ -28,27 +27,27 @@ SOCK                  38;5;197
 STICKY                38;5;86;48;5;234
 STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 
-*LS_COLORS 48;5;89;38;5;197;1;3;4;7 # :-)
 # }}}
 # documents {{{1
-*README               38;5;220;1
-*LICENSE              38;5;220;1
-*COPYRIGHT            38;5;220;1
-*AUTHORS              38;5;220;1
-*HISTORY              38;5;220;1
-.log                  38;5;190
+*README               38;5;178
+*LICENSE              38;5;178
+*COPYRIGHT            38;5;178
+*AUTHORS              38;5;178
+*HISTORY              38;5;178
+.log                  38;5;178
 # plain-text {{{2
-.txt                  38;5;253
+.txt                  38;5;178
 # markup {{{2
-.etx                  38;5;184
-.info                 38;5;184
-.markdown             38;5;184
-.md                   38;5;184
-.mkd                  38;5;184
-.nfo                  38;5;184
-.pod                  38;5;184
-.tex                  38;5;184
-.textile              38;5;184
+.etx                  38;5;178
+.info                 38;5;178
+.markdown             38;5;178
+.md                   38;5;178
+.mkd                  38;5;178
+.nfo                  38;5;178
+.pod                  38;5;178
+.tex                  38;5;178
+.textile              38;5;178
+.rdoc                 38;5;178
 # key-value, non-relational data {{{2
 .msg                  38;5;178
 .pgn                  38;5;178
@@ -90,17 +89,20 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 # }}}
 # }}}
 # configs {{{2
-*cfg                  1
-*conf                 1
-*rc                   1
-.ini                  1
+*cfg                  01;38;5;198
+*conf                 01;38;5;198
+*config               01;38;5;198
+*aliases              01;38;5;198
+*custom               01;38;5;198
+*rc                   01;38;5;198
+.ini                  01;38;5;198
+.dircolors            01;38;5;198
+*Gemfile              01;38;5;198
+*Rakefile             01;38;5;198
+*.ru                  01;38;5;198
 #   vim
-.vim                  1
-.viminfo              1
-#   cisco VPN client configuration
-.pcf                  1
-#   adobe photoshop proof settings file
-.psf                  1
+.vim                  01;38;5;198
+.viminfo              01;38;5;198
 # }}}
 # }}}
 # code {{{1
@@ -109,19 +111,22 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .gitignore            38;5;240
 .gitattributes        38;5;240
 .gitmodules           38;5;240
+.lock                 38;5;240
 
 # shell {{{2
-.awk                  38;5;172
-.bash                 38;5;172
-.bat                  38;5;172
-.BAT                  38;5;172
-.sed                  38;5;172
-.sh                   38;5;172
-.zsh                  38;5;172
+.awk                  00;38;5;208
+.bash                 00;38;5;208
+.bat                  00;38;5;208
+.BAT                  00;38;5;208
+.sed                  00;38;5;208
+.sh                   00;38;5;208
+.zsh                  00;38;5;208
 
 # interpreted {{{2
 .ahk                  38;5;29;1
 .py                   38;5;41
+.rb                   38;5;160;1
+.erb                  38;5;124;1
 # sql
 .msql                 38;5;222
 .mysql                38;5;222
@@ -192,9 +197,9 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .mustache             38;5;125;1
 # }}}
 # java {{{2
-.coffee               38;5;074;1
+.coffee               38;5;76
 .java                 38;5;074;1
-.js                   38;5;074;1
+.js                   38;5;76
 .jsm                  38;5;074;1
 .jsm                  38;5;074;1
 .jsp                  38;5;074;1
@@ -212,7 +217,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .vbs                  38;5;81
 # 2}}}
 # Build stuff {{{2
-*Makefile             38;5;155
+*Makefile             38;5;97
 *MANIFEST             38;5;243
 *pm_to_blib           38;5;240
 # automake
@@ -227,48 +232,49 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .patch                48;5;197;38;5;232;1
 #}}}
 # graphics {{{1
-.bmp                  38;5;97
-.tiff                 38;5;97
-.TIFF                 38;5;97
-.cdr                  38;5;97
-.gif                  38;5;97
-.go                   38;5;97
-.ico                  38;5;97
-.jpeg                 38;5;97
-.JPG                  38;5;97
-.jpg                  38;5;97
-.nth                  38;5;97
-.png                  38;5;97
-.svg                  38;5;97
-.xpm                  38;5;97
+.bmp                  38;5;33
+.tiff                 38;5;33
+.TIFF                 38;5;33
+.cdr                  38;5;33
+.gif                  38;5;33
+.go                   38;5;33
+.ico                  38;5;33
+.jpeg                 38;5;33
+.JPG                  38;5;33
+.jpg                  38;5;33
+.nth                  38;5;33
+.png                  38;5;33
+.svg                  38;5;33
+.xpm                  38;5;33
 # }}}
 # video {{{1
-.avi                  38;5;114
-.divx                 38;5;114
-.IFO                  38;5;114
-.m2v                  38;5;114
-.m4v                  38;5;114
-.mkv                  38;5;114
-.MOV                  38;5;114
-.mov                  38;5;114
-.mp4                  38;5;114
-.mpeg                 38;5;114
-.mpg                  38;5;114
-.ogm                  38;5;114
-.rmvb                 38;5;114
-.sample               38;5;114
-.wmv                  38;5;114
+.avi                  38;5;68
+.avi                  38;5;68
+.divx                 38;5;68
+.IFO                  38;5;68
+.m2v                  38;5;68
+.m4v                  38;5;68
+.mkv                  38;5;68
+.MOV                  38;5;68
+.mov                  38;5;68
+.mp4                  38;5;68
+.mpeg                 38;5;68
+.mpg                  38;5;68
+.ogm                  38;5;68
+.rmvb                 38;5;68
+.sample               38;5;68
+.wmv                  38;5;68
   # mobile/streaming {{{2
-.3g2                  38;5;115
-.3gp                  38;5;115
-.gp3                  38;5;115
-.webm                 38;5;115
-.gp4                  38;5;115
-.asf                  38;5;115
-.flv                  38;5;115
-.ts                   38;5;115
-.ogv                  38;5;115
-.f4v                  38;5;115
+.3g2                  38;5;68
+.3gp                  38;5;68
+.gp3                  38;5;68
+.webm                 38;5;68
+.gp4                  38;5;68
+.asf                  38;5;68
+.flv                  38;5;68
+.ts                   38;5;68
+.ogv                  38;5;68
+.f4v                  38;5;68
   # }}}
   # lossless {{{2
 .VOB                  38;5;115;1
@@ -310,16 +316,16 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .pfa                  38;5;66
 # }}}
 # archives {{{1
-.7z                   38;5;40
-.a                    38;5;40
-.arj                  38;5;40
-.bz2                  38;5;40
-.gz                   38;5;40
-.rar                  38;5;40
-.tar                  38;5;40
-.tgz                  38;5;40
-.xz                   38;5;40
-.zip                  38;5;40
+.7z                   38;5;112;3
+.a                    38;5;112;3
+.arj                  38;5;112;3
+.bz2                  38;5;112;3
+.gz                   38;5;112;3
+.rar                  38;5;112;3
+.tar                  38;5;112;3
+.tgz                  38;5;112;3
+.xz                   38;5;112;3
+.zip                  38;5;112;3
   # packaged apps {{{2
 .apk                  38;5;215
 .deb                  38;5;215
@@ -488,9 +494,9 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .state                38;5;248
 *lockfile             38;5;248
 # error logs
-.err                  38;5;160;1
-.error                38;5;160;1
-.stderr               38;5;160;1
+.err                  38;5;196
+.error                38;5;196
+.stderr               38;5;196
 # state dumps
 .dump                 38;5;241
 .stackdump            38;5;241
@@ -589,41 +595,6 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .spl                  38;5;7
 #   GIMP project file
 .scm                  38;5;7
-#   Nokia Symbian OS files
-.sis                  38;5;7
-
-.1p                   38;5;7
-.3p                   38;5;7
-.cnc                  38;5;7
-.def                  38;5;7
-.ex                   38;5;7
-.example              38;5;7
-.feature              38;5;7
-.ger                  38;5;7
-.map                  38;5;7
-.mf                   38;5;7
-.mfasl                38;5;7
-.mi                   38;5;7
-.mtx                  38;5;7
-.pc                   38;5;7
-.pi                   38;5;7
-.plt                  38;5;7
-.pm                   38;5;7
-.rb                   38;5;7
-.rdf                  38;5;7
-.rst                  38;5;7
-.ru                   38;5;7
-.sch                  38;5;7
-.sty                  38;5;7
-.sug                  38;5;7
-.t                    38;5;7
-.tdy                  38;5;7
-.tfm                  38;5;7
-.tfnt                 38;5;7
-.tg                   38;5;7
-.vcard                38;5;7
-.vcf                  38;5;7
-.xln                  38;5;7
 # }}}
 # termcap {{{1
 TERM ansi
