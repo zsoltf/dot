@@ -29,18 +29,16 @@ fi
 #    PS1=$(printf "%*s%s " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
 #}
 
-color_red="\e[38;5;234m"
-color_bg_red="\e[48;5;234m"
-color_blue="\e[38;5;234m"
-color_bg_blue="\e[48;5;234m"
-color_gray="\e[38;5;234m"
-color_bg_gray="\e[48;5;234m"
-color_off="\e[0m"
+c_red="\e[38;5;234;48;5;160m"
+c_red_inv="\e[38;5;160;48;5;0m"
+c_gray="\e[38;5;234m"
+c_orange="\e[38;5;166;48;5;234m"
+c_off="\e[0m"
 
 prompt() {
   local COL=$(expr `tput cols` - ${#PWD})
-  red="$color_red λ $color_off "
-  PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red; else echo -e "\e[48;5;234m λ \e[48;5;0m  "; fi) '
+  red_prompt="$c_red λ $c_off$c_red_inv $c_off"
+  PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e "$c_orange λ $c_off$c_gray $c_off"; fi) '
   tput sc
   tput cuf $COL
   echo -e "\e[2m"$PWD
