@@ -11,7 +11,7 @@
 !.config
 .config/.secrets
 !.inputrc
-!.bashrc.custom
+!.bashrc
 !.bashrc.aliases
 !.fbtermrc
 !.dot/

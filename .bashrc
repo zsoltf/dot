@@ -50,6 +50,11 @@ PROMPT_COMMAND=prompt
 # SETTINGS
 #############
 
+# dircolors
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
 # vim
 export EDITOR="vim"
 
@@ -84,6 +89,9 @@ export PATH="$GOPATH/bin:$PATH"
 #############
 # UTILS
 #############
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # xvfb
 alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'

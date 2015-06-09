@@ -2,6 +2,7 @@
 # Aliases
 #############
 
+shopt -s expand_aliases
 alias df="dfc"
 alias l="ls++"
 alias ll="ls++ -a"
