@@ -1,12 +1,4 @@
 #############
-# Aliases
-#############
-
-if [ -f ~/.bashrc.aliases ]; then
-  source ~/.bashrc.aliases
-fi
-
-#############
 # PROMPT
 #############
 
@@ -116,3 +108,13 @@ else
     TERM=fbterm tmux -2u new -s $HOSTNAME
   fi
 fi
+
+#############
+# SCRIPTS
+#############
+
+# Load any supplementary scripts
+for config in "$HOME"/.bashrc.d/*.bash ; do
+    source "$config"
+done
+unset -v config
