@@ -2,6 +2,8 @@ dot
 ===
 
 personal dotfiles branched by machine
+
+```
 .bashrc.d       bash aliases and functions
 .dot            installers
 .vim            vim, the editor
@@ -12,6 +14,7 @@ personal dotfiles branched by machine
 .inputrc        inputrc for nice completion
 .pryrc          ruby irb replacement
 .tmux.conf      terminal multiplexer
+```
 
 ## bash
 ##### aliases.bash
