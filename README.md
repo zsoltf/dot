@@ -2,42 +2,38 @@ dot
 ===
 
 personal dotfiles branched by machine
-
+.bashrc.d       bash aliases and functions
+.dot            installers
+.vim            vim, the editor
+.bashrc         bash configuration
+.dircolors      ls colors
+.fbtermrc       frame buffer terminal
+.gitconfig      git configuration
+.inputrc        inputrc for nice completion
+.pryrc          ruby irb replacement
+.tmux.conf      terminal multiplexer
 
 ## bash
-##### bin
-- ls++
-- dfc
-- cdu
-- gotermimg
-
-#####.bashrc.custom
+##### aliases.bash
 ```bash
-# aliases
-alias df="dfc"
-alias l="ls++"
-alias ll="ls++ -a"
+alias c="clear;"
+alias g="git"
+alias gc="git commit -m"
+alias apt="sudo apt-get"
 alias img="gotermimg -u=true"
-alias vb="vim ~/.bashrc.custom"
-alias du="cdu -i -d h"
-
-# bundler
-alias b="bundle"
-alias bi="b install --path vendor"
-alias bil="bi --local"
-alias bu="b update"
-alias be="b exec"
-alias binit="bi && b package && echo vendor/ruby >> .gitignore"
-alias ber="be rspec"
-alias berp="be rake db:test:prepare && ber"
-
-# for xvfb
-alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'
-export DISPLAY=:1.5
-
-# dropbox
-alias drop="python ~/.dropbox/dropbox.py"
 ```
+
+## vim
+
+## dircolors
+
+## fbterm
+
+## git
+
+## pry
+
+## tmux
 #### tmux on startup
 ```bash
 # always open tmux
@@ -47,8 +43,6 @@ else
   tmux -2u new -s trusty
 fi
 ```
-
-## tmux
 #### shortcuts
 ```bash
 # Create splits and vertical splits

@@ -49,6 +49,7 @@ fi
 
 # vim
 export EDITOR="vim"
+set -o vi
 
 # disable flow control
 stty -ixon
