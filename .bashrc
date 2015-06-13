@@ -85,6 +85,7 @@ export PATH="$GOPATH/bin:$PATH"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS=-x
 
 # xvfb
 alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'

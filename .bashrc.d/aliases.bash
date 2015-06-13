@@ -4,8 +4,9 @@
 
 shopt -s expand_aliases
 alias df="dfc"
-alias l="ls++"
-alias ll="ls++ -a"
+alias l="lsr -l"
+alias ll="lsr -al"
+alias ls="lsr"
 alias img="gotermimg -u=true"
 alias du="cdu -i -d h"
 alias c="clear;"
