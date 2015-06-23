@@ -21,19 +21,20 @@
 #    PS1=$(printf "%*s%s " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
 #}
 
-c_red="\e[38;5;160;48;5;234m"
+c_red="\e[38;5;160m"
 c_red_inv="\e[38;5;234;48;5;160m"
-c_gray="\e[38;5;234m"
-c_orange="\e[38;5;166;48;5;234m"
+c_gray="\e[38;5;237;48m"
+c_orange="\e[38;5;166;48m"
+c_blue="\e[38;5;67;48m"
 c_off="\e[0m"
 
 prompt() {
-  local COL=$(expr `tput cols` - ${#PWD})
+  local COL=$(expr `tput cols` - 13 - `git branch | grep '*' | wc -m`)
   red_prompt="$c_red λ $c_off"
   PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e "$c_orange λ $c_off"; fi) '
   tput sc
   tput cuf $COL
-  echo -e "\e[2m"$PWD
+  echo -e "${c_gray}‹${c_blue}${PWD: -12}${c_off}$(git branch | grep '*' | cut -c2-)"
   tput rc
 }
 PROMPT_COMMAND=prompt
