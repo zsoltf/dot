@@ -1,4 +1,19 @@
-Control-n: menu-complete
-Control-p: menu-complete-backward
-
+set editing-mode vi
 set completion-display-width 1
+
+# vi settings
+$if mode=vi
+    # normal mode
+    set keymap vi-command
+    "j": beginning-of-history
+    "l": backward-char
+    "h": forward-char
+    "G": end-of-history
+    # insert mode
+    set keymap vi-insert
+    "jj": vi-movement-mode # remap escape
+    Control-j: next-history
+    Control-k: previous-history
+    Control-n: menu-complete
+    Control-p: menu-complete-backward
+  $endif
