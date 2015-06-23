@@ -29,6 +29,7 @@ c_blue="\e[38;5;67;48m"
 c_off="\e[0m"
 
 prompt() {
+  history -a; history -c; history -r
   local COL=$(expr `tput cols` - 13 - `git branch | grep '*' | wc -m`)
   red_prompt="$c_red λ $c_off"
   PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e "$c_orange λ $c_off"; fi) '
