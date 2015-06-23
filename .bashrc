@@ -34,7 +34,7 @@ prompt() {
   PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e "$c_orange λ $c_off"; fi) '
   tput sc
   tput cuf $COL
-  echo -e "${c_gray}‹${c_blue}${PWD: -12}${c_off}$(git branch | grep '*' | cut -c2-)"
+  echo -e "${c_gray}‹${c_blue}${PWD: -12}${c_off} $(git branch | grep '*' | cut -c2-)"
   tput rc
 }
 PROMPT_COMMAND=prompt
