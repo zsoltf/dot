@@ -2,61 +2,59 @@
 # PROMPT
 #############
 
-#function prompt_right() {
-#  echo -e "\033[1;30m$(echo ${PWD})\033[0m"
-#}
-#
-#function prompt_left() {
-#  if [[ $last_command == 0 ]]
-#  then
-#    echo -e "\033[1;30;42mλ\033[0m"
-#  else
-#    echo -e "\033[1;41mλ\033[0m"
-#  fi
-#}
-#
-#function prompt() {
-#    last_command=$?
-#    compensate=4
-#    PS1=$(printf "%*s%s " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
-#}
-
-c_red="\e[38;5;234;48;5;160m"
-c_red_inv="\e[38;5;160;48;5;0m"
-c_gray="\e[38;5;234m"
+c_red_inv="\e[38;5;234;48;5;160m"
+c_red="\e[38;5;160;48;5;0m"
+c_gray="\e[38;5;238m"
+c_green="\e[38;5;108m"
 c_orange="\e[38;5;166;48;5;234m"
 c_off="\e[0m"
 
-prompt() {
-  local COL=$(expr `tput cols` - ${#PWD})
-  red_prompt="$c_red λ $c_off$c_red_inv $c_off"
-  PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e "$c_orange λ $c_off$c_gray $c_off"; fi) '
-  tput sc
-  tput cuf $COL
-  echo -e "\e[2m"$PWD
-  tput rc
+function prompt_right() {
+  #echo -e "${c_gray}$(echo ${PWD})${c_off}"
+  echo "${PWD}"
 }
+
+function prompt_left() {
+  if [[ $last_command == 0 ]]
+  then
+    echo -e "${c_orange}λ${c_off}"
+  else
+    echo -e "${c_red}λ${c_off}"
+  fi
+}
+
+function prompt() {
+    last_command=$?
+    compensate=0
+    PS1=$(printf "%*s%s " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+}
+
 PROMPT_COMMAND=prompt
 
 #############
 # SETTINGS
 #############
 
-# dircolors
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+# gls and gdircolors for bsd
+if [ -x /usr/local/bin/gdircolors ]; then
+    test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
+    alias ls="gls"
 fi
 
 # vim
 export EDITOR="vim"
 set -o vi
 
+# pager
+export PAGER="less"
+export LESS="-XR"
+
 # disable flow control
 stty -ixon
 
 # completion
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-  . /usr/share/bash-completion/bash_completion
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+  . /usr/local/share/bash-completion/bash_completion
 fi
 
 # history
