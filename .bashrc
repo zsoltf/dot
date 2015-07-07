@@ -51,6 +51,8 @@ fi
 
 # vim
 export EDITOR="vim"
+#export PAGER="vimpager"
+#alias less="vimpager"
 set -o vi
 
 # disable flow control
