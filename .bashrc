@@ -27,12 +27,16 @@ c_gray="\e[38;5;237;48m"
 c_orange="\e[38;5;166;48m"
 c_blue="\e[38;5;67;48m"
 c_off="\e[0m"
+#mintty
+c_green_cursor="\e]12;#FD9D4F\a"
+c_red_cursor="\e]12;#d70000\a"
 
 prompt() {
   history -a; history -c; history -r
   local COL=$(expr `tput cols` - 13 - `git branch | grep '*' | wc -m`)
-  red_prompt="$c_red λ $c_off"
-  PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e "$c_orange λ $c_off"; fi) '
+  red_prompt="$c_red λ $c_red_cursor$c_off"
+  green_prompt="$c_orange λ $c_green_cursor$c_off"
+  PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e $green_prompt; fi) '
   tput sc
   tput cuf $COL
   echo -e "${c_gray}‹${c_blue}${PWD: -12}${c_off} $(git branch | grep '*' | cut -c2-)"
