@@ -31,3 +31,12 @@ alias berp="be rake db:test:prepare && ber"
 # dropbox
 alias drop="python ~/.dropbox/dropbox.py"
 
+# vim man
+m()
+{
+  if [ -n "$1" ]; then
+    vim "+Man $1 | wincmd o"
+  else
+    echo 'boo'
+  fi
+}
