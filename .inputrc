@@ -5,13 +5,12 @@ set completion-display-width 1
 $if mode=vi
     # normal mode
     set keymap vi-command
-    "j": beginning-of-history
     "l": backward-char
     "h": forward-char
     "G": end-of-history
     # insert mode
     set keymap vi-insert
-    "jj": vi-movement-mode # remap escape
+    Control-o: vi-movement-mode # remap escape
     Control-j: next-history
     Control-k: previous-history
     Control-n: menu-complete

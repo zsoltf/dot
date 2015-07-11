@@ -40,3 +40,4 @@ m()
     echo 'boo'
   fi
 }
+alias man='m'
