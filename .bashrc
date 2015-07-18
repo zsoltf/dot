@@ -12,6 +12,7 @@ alias la='ls -a'
 alias ll='ls -al'
 alias vrc='vim ~/.vimrc'
 alias c='clear'
+alias g='git'
 
 # vi
 export EDITOR='vim'
