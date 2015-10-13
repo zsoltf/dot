@@ -59,8 +59,8 @@ export EDITOR="vim"
 #alias less="vimpager"
 set -o vi
 
-# disable flow control
-stty -ixon
+# disable flow control for interactive shells
+[[ $- == *i* ]] && stty -ixon
 
 # completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -108,16 +108,16 @@ export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
 # always open tmux
-if ( tmux list-sessions ); then
-  tmux -2u att 2> /dev/null
-else
-  # set the right term when launching tmux
-  if [[ -n "$SSH_TTY" ]]; then
-    TERM=xterm tmux -2u new -s $HOSTNAME
-  else
-    TERM=fbterm tmux -2u new -s $HOSTNAME
-  fi
-fi
+#if ( tmux list-sessions ); then
+#  tmux -2u att 2> /dev/null
+#else
+#  # set the right term when launching tmux
+#  if [[ -n "$SSH_TTY" ]]; then
+#    TERM=xterm tmux -2u new -s $HOSTNAME
+#  else
+#    TERM=fbterm tmux -2u new -s $HOSTNAME
+#  fi
+#fi
 
 #############
 # SCRIPTS
