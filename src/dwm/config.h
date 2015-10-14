@@ -2,22 +2,22 @@
 
 /* appearance */
 static const char *fonts[] = {
-    "DejaVu Sans Mono for Powerline:size=12",
+    "DejaVu Sans Mono-12",
 };
-static const char dmenufont[] = "-*-terminus-*-*-*-*-18-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#002b36";
-static const char normbgcolor[]     = "#111111";
-static const char normfgcolor[]     = "#6292A9";
-static const char selbordercolor[]  = "#222222";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char dmenufont[] = "DejaVu Sans Mono-12";
+static const char normbordercolor[] = "#262626";
+static const char normbgcolor[]     = "#080808";
+static const char normfgcolor[]     = "#606060";
+static const char selbordercolor[]  = "#303030";
+static const char selbgcolor[]      = "#262626";
+static const char selfgcolor[]      = "#6292A9";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "α", "β", "ξ", "δ", "ε" };
+static const char *tags[] = { "α", "β", "ξ", "δ", "ε", "φ", "γ" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -36,16 +36,16 @@ static const Bool resizehints = False; /* True means respect size hints in tiled
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "dшм",      tile },    /* first entry is default */
-	{ "ϝ",      NULL },    /* no layout function means floating behavior */
+	{ "∷",      tile },    /* first entry is default */
+	{ "∫",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      toggleview,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      view,     {.ui = 1 << TAG} }, \
+	{ MODKEY,                       KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
@@ -105,8 +105,8 @@ static Button buttons[] = {
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        toggleview,           {0} },
-	{ ClkTagBar,            0,              Button3,        view,     {0} },
+	{ ClkTagBar,            0,              Button1,        toggleview,     {0} },
+	{ ClkTagBar,            0,              Button3,        view,           {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
