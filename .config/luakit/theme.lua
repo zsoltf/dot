@@ -5,7 +5,7 @@
 local theme = {}
 
 -- Default settings
-theme.font = "monospace normal 9"
+theme.font = "DejaVu Sans Mono for Powerline bold 10"
 theme.fg   = "#fff"
 theme.bg   = "#000"
 
