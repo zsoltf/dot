@@ -1,0 +1,76 @@
+diff --git i/config.h w/config.h
+index 6f73dc6..b43c8b4 100644
+--- i/config.h
++++ w/config.h
+@@ -2,24 +2,22 @@
+ 
+ /* appearance */
+ static const char *fonts[] = {
+-    "Sans:size=10.5",
+-    "VL Gothic:size=10.5",
+-    "WenQuanYi Micro Hei:size=10.5",
++    "DejaVu Sans Mono-12",
+ };
+-static const char dmenufont[] = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
+-static const char normbordercolor[] = "#444444";
+-static const char normbgcolor[]     = "#222222";
+-static const char normfgcolor[]     = "#bbbbbb";
+-static const char selbordercolor[]  = "#005577";
+-static const char selbgcolor[]      = "#005577";
+-static const char selfgcolor[]      = "#eeeeee";
++static const char dmenufont[] = "DejaVu Sans Mono-12";
++static const char normbordercolor[] = "#262626";
++static const char normbgcolor[]     = "#080808";
++static const char normfgcolor[]     = "#606060";
++static const char selbordercolor[]  = "#303030";
++static const char selbgcolor[]      = "#262626";
++static const char selfgcolor[]      = "#6292A9";
+ static const unsigned int borderpx  = 1;        /* border pixel of windows */
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const Bool showbar           = True;     /* False means no bar */
+ static const Bool topbar            = True;     /* False means bottom bar */
+ 
+ /* tagging */
+-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
++static const char *tags[] = { "α", "β", "ξ", "δ", "ε", "φ", "γ" };
+ 
+ static const Rule rules[] = {
+ 	/* xprop(1):
+@@ -34,20 +32,20 @@ static const Rule rules[] = {
+ /* layout(s) */
+ static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
+ static const int nmaster      = 1;    /* number of clients in master area */
+-static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
++static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
+ 
+ static const Layout layouts[] = {
+ 	/* symbol     arrange function */
+-	{ "[]=",      tile },    /* first entry is default */
+-	{ "><>",      NULL },    /* no layout function means floating behavior */
++	{ "∷",      tile },    /* first entry is default */
++	{ "∫",      NULL },    /* no layout function means floating behavior */
+ 	{ "[M]",      monocle },
+ };
+ 
+ /* key definitions */
+-#define MODKEY Mod1Mask
++#define MODKEY Mod4Mask
+ #define TAGKEYS(KEY,TAG) \
+-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
++	{ MODKEY,                       KEY,      toggleview,     {.ui = 1 << TAG} }, \
++	{ MODKEY|ControlMask,           KEY,      view,           {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+ 
+@@ -107,8 +105,8 @@ static Button buttons[] = {
+ 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+ 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+ 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+-	{ ClkTagBar,            0,              Button1,        view,           {0} },
+-	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
++	{ ClkTagBar,            0,              Button1,        toggleview,     {0} },
++	{ ClkTagBar,            0,              Button3,        view,           {0} },
+ 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+ 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+ };
