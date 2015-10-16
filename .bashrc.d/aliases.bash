@@ -3,10 +3,22 @@
 #############
 
 shopt -s expand_aliases
-alias df="dfc"
-alias l="lsr -l"
-alias ll="lsr -al"
+
+# ls
 alias ls="lsr"
+alias l="lsr -l"
+alias lss="lsr -lS"
+alias lsp="lsr -lP"
+alias lst="lsr -lt"
+alias lstp="lsr -ltP"
+alias ll="lsr -al"
+alias llt="lsr -alt"
+alias lltp="lsr -altP"
+alias llp="lsr -alP"
+alias lls="lsr -alS"
+alias llsp="lsr -alSP"
+
+alias df="dfc"
 alias img="gotermimg -u=true"
 alias du="cdu -i -d h"
 alias c="clear;"
@@ -41,3 +53,6 @@ m()
   fi
 }
 alias man='m'
+
+# splunk
+alias splunk="sudo /opt/splunk/bin/splunk"

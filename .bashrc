@@ -108,16 +108,16 @@ export PATH="$PATH:$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
 # always open tmux
-if ( tmux list-sessions ); then
-  tmux -2u att 2> /dev/null
-else
-  # set the right term when launching tmux
-  if [[ -n "$SSH_TTY" ]]; then
-    TERM=xterm tmux -2u new -s $HOSTNAME
-  else
-    TERM=fbterm tmux -2u new -s $HOSTNAME
-  fi
-fi
+#if ( tmux list-sessions ); then
+#  tmux -2u att 2> /dev/null
+#else
+#  # set the right term when launching tmux
+#  if [[ -n "$SSH_TTY" ]]; then
+#    tmux -2u new -s $HOSTNAME
+#  else
+#    tmux -2u new -s $HOSTNAME
+#  fi
+#fi
 
 #############
 # SCRIPTS
@@ -128,3 +128,7 @@ for config in "$HOME"/.bashrc.d/*.bash ; do
     source "$config"
 done
 unset -v config
+
+
+source ~/.xsh
+
