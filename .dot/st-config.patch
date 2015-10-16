@@ -1,0 +1,44 @@
+8c8
+< static char font[] = "DejaVu Sans Mono for Powerline:pixelsize=18:antialias=true:autohint=full";
+---
+> static char font[] = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+73,80c73,80
+< 	"#1c1c1c",
+< 	"#df0000",
+< 	"#87af5f",
+< 	"#df5f00",
+< 	"#5f87af",
+< 	"#df005f",
+< 	"#5f5f87",
+< 	"#c0c0c0",
+---
+> 	"black",
+> 	"red3",
+> 	"green3",
+> 	"yellow3",
+> 	"blue2",
+> 	"magenta3",
+> 	"cyan3",
+> 	"gray90",
+83,87c83,87
+< 	"#303030",
+< 	"#FF2626",
+< 	"#87af87",
+< 	"#ff8700",
+< 	"#87afdf",
+---
+> 	"gray50",
+> 	"red",
+> 	"green",
+> 	"yellow",
+> 	"#5c5cff",
+89,90c89,90
+< 	"#7A7A99",
+< 	"#cccccc",
+---
+> 	"cyan",
+> 	"white",
+96c96
+<         "#151515"
+---
+> 	"#555555",
