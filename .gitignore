@@ -20,3 +20,5 @@
 !.dircolors
 !.pryrc
 !.tigrc
+!.bundle/
+!.bundle/*
