@@ -1,0 +1,4 @@
+base:
+  'neutron':
+    - rbenv
+    - elasticsearch
