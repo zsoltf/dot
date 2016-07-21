@@ -12,5 +12,5 @@ elasticsearch_config:
     - defaults:
         cluster_name: atom
         node_name: neutron
-        network_host: localhost
+        network_host: neutron
         network_port: 9200
