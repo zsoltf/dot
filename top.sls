@@ -1,5 +1,6 @@
 base:
   '*':
+    - dot
     - dwm
     - fonts
     - st
