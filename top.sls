@@ -1,5 +1,6 @@
 base:
   'neutron':
-    - rbenv
+    - dwm
     - elasticsearch
+    - rbenv
     - vim
