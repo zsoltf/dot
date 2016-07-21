@@ -20,7 +20,6 @@ dwm-config:
   file.managed:
     - name: /tmp/dwm-6.1/config.def.h
     - source: salt://dwm/config.h
-    - check_cmd: which dwm
     - create: False
     - require:
       - download-dwm
@@ -29,7 +28,6 @@ dwm-config-mk:
   file.managed:
     - name: /tmp/dwm-6.1/config.mk
     - source: salt://dwm/config.mk
-    - check_cmd: which dwm
     - create: False
     - require:
       - download-dwm
@@ -58,6 +56,7 @@ xsessions-login:
 start-dwm-script:
   file.managed:
     - name: /home/krieger/.startdwm
+    - mode: 755
     - contents: |
         #!/usr/bin/env bash
         exec dwm

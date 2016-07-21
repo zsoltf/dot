@@ -3,4 +3,5 @@ base:
     - dwm
     - elasticsearch
     - rbenv
+    - st
     - vim
