@@ -34,4 +34,4 @@ st-cleanup:
   cmd.run:
     - name: rm -rf /tmp/st-0.6*
     - cwd: /tmp
-    - unless: test -d /tmp/st-0.6
+    - onlyif: test -d /tmp/st-0.6
