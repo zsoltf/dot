@@ -11,6 +11,15 @@ install-fasd:
     - cwd: /tmp
     - unless: which fasd
 
+install-fzf:
+  cmd.run:
+    - name: |
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    - cwd: ~
+    - runas: krieger
+    - unless: test -d ~/.fzf
+
 install-lsr:
   cmd.run:
     - name: |

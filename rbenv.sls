@@ -19,15 +19,23 @@ rbenv-deps:
 ruby-2.3.1:
   rbenv.installed:
     - default: True
+    - user: krieger
     - require:
       - pkg: rbenv-deps
 
 ruby-2.2.5:
   rbenv.installed:
+    - user: krieger
     - require:
       - pkg: rbenv-deps
 
 ruby-2.1.9:
-  rbenv.installed:
+  rbenv.absent:
+    - user: krieger
     - require:
       - pkg: rbenv-deps
+
+install-bundler-gem:
+  gem.installed:
+    - name: bundler
+    - ruby: ruby-2.3.1

@@ -25,3 +25,9 @@ install-vim-plugins:
     - timeout: 300
     - require:
         - clone-vundle
+
+make-vimproc:
+  cmd.run:
+    - name: ~/.vim/bundle/vimproc.vim/make
+    - runas: krieger
+    - cwd: ~

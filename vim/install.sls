@@ -5,7 +5,7 @@ clone-vim-repo:
     - cwd: /tmp
     - shell: /bin/bash
     - timeout: 300
-    - unless: test -d /tmp/vim
+    - unless: which vim || test -d /tmp/vim
 
 configure-vim:
   cmd.run:
@@ -22,7 +22,7 @@ configure-vim:
     - cwd: /tmp/vim
     - shell: /bin/bash
     - timeout: 300
-    - unless: test -f /usr/local/bin/vim
+    - unless: which vim
     - require:
       - clone-vim-repo
 
@@ -33,6 +33,6 @@ make-install-vim:
     - cwd: /tmp/vim
     - shell: /bin/bash
     - timeout: 300
-    - unless: test -f /usr/local/bin/vim
+    - unless: which vim
     - require:
       - configure-vim
