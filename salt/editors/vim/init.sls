@@ -1,0 +1,12 @@
+{% if grains['os'] == 'Windows' %}
+
+include:
+  - .windows
+  - .cygwin
+
+{% elif grains['os_family'] == 'Debian' %}
+
+include:
+  - .debian
+
+{% endif %}

@@ -2,12 +2,12 @@ base:
   '*':
     - dot
     - users
-    - vim
+    - editors.vim
   'lsb_distrib_id:Xubuntu':
     - match: grain
-    - dwm
-    - st
-    - fonts
+    - cli.dwm
+    - cli.st
+    - cli.fonts
   'neutron':
-    - elasticsearch
-    - rbenv
+    - db.elasticsearch
+    - dev.ruby.rbenv

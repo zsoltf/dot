@@ -1,9 +1,8 @@
 vim:
-  dotfile: .vimrc
   lookup:
     Windows:
-      name: .vimrc
-      source: salt://dot/windows/vimrc
+      dotfile: vimrc
+      source: salt://editors/vim/files/windows/vimrc
     Debian:
-      name: .vimrc
-      source: salt://dot/debian/vimrc
+      dotfile: .vimrc
+      source: salt://editors/vim/files/debian/vimrc
