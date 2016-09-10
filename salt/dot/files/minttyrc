@@ -1,0 +1,15 @@
+BoldAsFont=yes
+Transparency=off
+FontHeight=18
+Locale=en_US
+Charset=UTF-8
+Scrollbar=none
+Font=DejaVu Sans Mono for Powerline
+OpaqueWhenFocused=no
+CursorType=block
+FontSmoothing=partial
+BoldAsColour=yes
+AllowBlinking=yes
+Columns=94
+Rows=50
+PgUpDnScroll=yes

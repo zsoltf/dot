@@ -1,10 +1,13 @@
 base:
   '*':
     - dot
-    - dwm
-    - fonts
-    - st
+    - users
     - vim
+  'lsb_distrib_id:Xubuntu':
+    - match: grain
+    - dwm
+    - st
+    - fonts
   'neutron':
     - elasticsearch
     - rbenv
