@@ -1,0 +1,7 @@
+[user]
+	email = zsoltf@me.com
+	name = Zsolt Fekete
+[push]
+	default = simple
+[pull]
+	rebase = true
