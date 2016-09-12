@@ -2,13 +2,13 @@ dot:
   lookup:
     Windows:
       - name: .bashrc
-        source: salt://dot/windows/bashrc
+        source: salt://dot/files/windows/bashrc
       - name: .tmux.conf
-        source: salt://dot/windows/tmux.conf
+        source: salt://dot/files/windows/tmux.conf
       - name: .minttyrc
-        source: salt://dot/windows/mittyrc
+        source: salt://dot/files/windows/minttyrc
     Debian:
       - name: .bashrc
-        source: salt://dot/debian/bashrc
+        source: salt://dot/files/debian/bashrc
       - name: .tmux.conf
-        source: salt://dot/windows/tmux.conf
+        source: salt://dot/files/windows/tmux.conf

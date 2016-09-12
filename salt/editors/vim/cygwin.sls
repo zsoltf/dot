@@ -1,3 +1,7 @@
+include: [ cli ]
+
+{% import 'cli/init.sls' as cli %}
+
 {% set vim = salt['grains.filter_by']( salt['pillar.get']('vim:lookup') ) %}
 
 check-if-vim-installed:
@@ -5,16 +9,13 @@ check-if-vim-installed:
     - name: which vim
     - unless: which vim
 
-
 install-vim:
-  module.run:
-    - name: cyg.install
-    - m_name: vim
-    - cyg_arch: x86
+  cyg.installed:
+    - name: vim
     - onchanges:
       - check-if-vim-installed
 
 manage-vimrc:
   file.managed:
-    - name: C:/cyg/usr/share/vim/{{ vim.dotfile }}
+    - name: {{ cli.root }}/usr/share/vim/{{ vim.dotfile }}
     - source: {{ vim.source }}

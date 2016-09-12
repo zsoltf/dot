@@ -1,7 +1,7 @@
-{% set users = salt['grains.filter_by']( salt['pillar.get']('users:lookup', {}) ) %}
+{% set list = salt['grains.filter_by']( salt['pillar.get']('users:lookup', {}) ) %}
 
 
-{% for user, details in users.get('present', {}).items() %}
+{% for user, details in list.present.items() %}
 
 {{ user }}:
   user.present:
@@ -12,7 +12,7 @@
 {% endfor %}
 
 
-{% for user in users.get('absent', {}) %}
+{% for user in list.get('absent', {}) %}
 
 {{ user }}:
   user.absent

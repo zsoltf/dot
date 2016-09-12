@@ -11,6 +11,5 @@ users:
     Debian:
       present:
         krieger:
-          home: /home/krieger
           # openssl passwd -1
           password: $1$6aMu5hk2$usziPZ9VxgVm2uJJkxO1z0
