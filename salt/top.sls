@@ -3,7 +3,9 @@ base:
     - cli
     - dot
     - users
-    - editors.vim
+    - editor.vim
   'neutron':
     - db.elasticsearch
     - dev.ruby.rbenv
+  'carbon':
+    - editor.emacs
