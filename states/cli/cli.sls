@@ -54,3 +54,11 @@ install-cdu:
         rm -rf cdu*
     - cwd: /tmp
     - unless: which cdu
+
+install-tree:
+  pkg.installed:
+    - name: tree
+
+install-tig:
+  pkg.installed:
+    - name: tig
