@@ -1,20 +1,11 @@
-{% set list = salt['grains.filter_by']( salt['pillar.get']('users:lookup', {}) ) %}
+{% from "users/map.jinja" import users with context %}
 
-
-{% for user, details in list.present.items() %}
+{% for user, details in users.items() %}
 
 {{ user }}:
   user.present:
     {% for key, value in details.items() %}
     - {{ key }}: {{ value }}
     {% endfor %}
-
-{% endfor %}
-
-
-{% for user in list.get('absent', {}) %}
-
-{{ user }}:
-  user.absent
 
 {% endfor %}
