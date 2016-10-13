@@ -493,7 +493,7 @@
 # files, but can be directed to look at the local file directory setting
 # defined below by setting it to "local". Setting a local file_client runs the
 # minion in masterless mode.
-#file_client: local
+#file_client: remote
 
 # The file directory works on environments passed to the minion, each environment
 # can have multiple root directories, the subdirectories in the multiple file
