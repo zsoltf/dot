@@ -13,4 +13,6 @@ dot:
       - name: .bashrc
         source: salt://dot/files/debian/bashrc
       - name: .tmux.conf
-        source: salt://dot/files/windows/tmux.conf
+        source: salt://dot/files/debian/tmux.conf
+      - name: .gitconfig
+        source: salt://dot/files/debian/gitconfig
