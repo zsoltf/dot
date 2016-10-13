@@ -17,7 +17,7 @@ download-st:
 st-config:
   file.managed:
     - name: /tmp/st-0.6/config.def.h
-    - source: salt://st/config.h
+    - source: salt://cli/st/config.h
     - create: False
     - require:
       - download-st

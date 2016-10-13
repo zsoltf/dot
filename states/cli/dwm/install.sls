@@ -19,7 +19,7 @@ download-dwm:
 dwm-config:
   file.managed:
     - name: /tmp/dwm-6.1/config.def.h
-    - source: salt://dwm/config.h
+    - source: salt://cli/dwm/config.h
     - create: False
     - require:
       - download-dwm
@@ -27,7 +27,7 @@ dwm-config:
 dwm-config-mk:
   file.managed:
     - name: /tmp/dwm-6.1/config.mk
-    - source: salt://dwm/config.mk
+    - source: salt://cli/dwm/config.mk
     - create: False
     - require:
       - download-dwm

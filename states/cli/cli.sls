@@ -37,6 +37,7 @@ install-gotermimg:
     - name: go get github.com/moshen/gotermimg/...
     - require:
       - install-golang
+    - runas: krieger
 
 install-dfc:
   pkg.installed:

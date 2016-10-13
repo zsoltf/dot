@@ -1,3 +1,3 @@
 include:
-  - dwm.config
-  - dwm.install
+  - .config
+  - .install

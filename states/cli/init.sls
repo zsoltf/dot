@@ -6,13 +6,16 @@ include:
 {% set root = 'C:/cyg' %}
 {% set home = 'C:/cyg/home' %}
 
-{% elif salt['grains.get']('lsb_distrib_id:Xubuntu') %}
+{% elif grains.os == 'Ubuntu' %}
 
 include:
   - .cli
   - .dwm
   - .fonts
   - .st
+
+{% set root = '/' %}
+{% set home = '/home' %}
 
 {% else %}
 

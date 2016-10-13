@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char font[] = "DejaVu Sans Mono for Powerline:pixelsize=18:antialias=true:autohint=full";
+static char font[] = "DejaVu Sans Mono for Powerline:pixelsize=32:antialias=true:autohint=full";
 static int borderpx = 2;
 static char shell[] = "/bin/bash";
 static char *utmp = NULL;
