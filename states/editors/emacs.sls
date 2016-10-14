@@ -8,3 +8,9 @@
 emacs-24-package:
   pkg.installed:
     - name: emacs24
+
+spacemacs:
+  git.latest:
+    - name: https://github.com/syl20bnr/spacemacs
+    - target: /home/krieger/.emacs.d
+    - user: krieger

@@ -1,3 +1,5 @@
+{% from "users/map.jinja" import users with context %}
+
 install-fasd:
   cmd.run:
     - name: |
@@ -11,15 +13,6 @@ install-fasd:
     - cwd: /tmp
     - unless: which fasd
 
-install-fzf:
-  cmd.run:
-    - name: |
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
-    - cwd: ~
-    - runas: krieger
-    - unless: test -d ~/.fzf
-
 install-lsr:
   cmd.run:
     - name: |
@@ -31,13 +24,6 @@ install-lsr:
 install-golang:
   pkg.installed:
      - name: golang
-
-install-gotermimg:
-  cmd.run:
-    - name: go get github.com/moshen/gotermimg/...
-    - require:
-      - install-golang
-    - runas: krieger
 
 install-dfc:
   pkg.installed:
@@ -62,3 +48,24 @@ install-tree:
 install-tig:
   pkg.installed:
     - name: tig
+
+
+{% for user, details in users.items() %}
+
+install-fzf:
+  cmd.run:
+    - name: |
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    - cwd: ~
+    - runas: {{ user }}
+    - unless: test -d ~/.fzf
+
+install-gotermimg:
+  cmd.run:
+    - name: go get github.com/moshen/gotermimg/...
+    - require:
+      - install-golang
+    - runas: {{ user }}
+
+{% endfor %}
