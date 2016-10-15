@@ -5,6 +5,9 @@
 #    - source: ftp://ftp.gnu.org/pub/gnu/emacs/emacs-25.1.tar.gz
 #    - source_hash: md5=95c12e6a9afdf0dcbdd7d2efa26ca42c
 
+include:
+  - .config
+
 emacs-24-package:
   pkg.installed:
     - name: emacs24
