@@ -16,3 +16,5 @@ dot:
         source: salt://dot/files/debian/tmux.conf
       - name: .gitconfig
         source: salt://dot/files/debian/gitconfig
+      - name: .config/xfce4/terminal/terminalrc
+        source: salt://dot/files/debian/terminalrc
