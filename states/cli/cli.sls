@@ -65,7 +65,7 @@ install-gotermimg:
   cmd.run:
     - name: go get github.com/moshen/gotermimg/...
     - require:
-      - install-golang
+      - pkg: install-golang
     - runas: {{ user }}
 
 {% endfor %}

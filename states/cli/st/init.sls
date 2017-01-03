@@ -20,7 +20,7 @@ st-config:
     - source: salt://cli/st/config.h
     - create: False
     - require:
-      - download-st
+      - cmd: download-st
 
 install-st:
   cmd.run:
@@ -28,7 +28,7 @@ install-st:
     - shell: /bin/bash
     - unless: test -f /usr/local/bin/st
     - require:
-      - st-config
+      - file: st-config
 
 st-cleanup:
   cmd.run:

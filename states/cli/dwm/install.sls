@@ -1,3 +1,5 @@
+{% from "users/map.jinja" import users with context %}
+
 dwm-dependencies:
   pkg.installed:
     - pkgs:
@@ -22,7 +24,7 @@ dwm-config:
     - source: salt://cli/dwm/config.h
     - create: False
     - require:
-      - download-dwm
+      - cmd: download-dwm
 
 dwm-config-mk:
   file.managed:
@@ -30,7 +32,7 @@ dwm-config-mk:
     - source: salt://cli/dwm/config.mk
     - create: False
     - require:
-      - download-dwm
+      - cmd: download-dwm
 
 install-dwm:
   cmd.run:
@@ -38,8 +40,10 @@ install-dwm:
     - shell: /bin/bash
     - unless: test -f /usr/local/bin/dwm
     - require:
-      - dwm-config
-      - dwm-config-mk
+      - file: dwm-config
+      - file: dwm-config-mk
+
+{% for user, details in users.items() %}
 
 xsessions-login:
   file.managed:
@@ -49,17 +53,19 @@ xsessions-login:
         Encoding=UTF-8
         Name=DWM
         Comment=Dynamic window manager
-        Exec=/home/krieger/.startdwm
+        Exec=/home/{{ user }}/.startdwm
         Icon=dwm
         Type=Application
 
 start-dwm-script:
   file.managed:
-    - name: /home/krieger/.startdwm
+    - name: /home/{{ user }}/.startdwm
     - mode: 755
     - contents: |
         #!/usr/bin/env bash
         exec dwm
+
+{% endfor %}
 
 dwm-cleanup:
   cmd.run:
