@@ -1,11 +1,13 @@
-{% from "users/map.jinja" import users with context %}
+include:
+  - .ssh
 
-{% for user, details in users.items() %}
+{% for username, details in pillar.get('users', {}).items() %}
+{{ username }}:
 
-{{ user }}:
   user.present:
-    {% for key, value in details.items() %}
-    - {{ key }}: {{ value }}
-    {% endfor %}
+    - fullname: {{ details.get('fullname', '') }}
+    - name: {{ username }}
+    - shell: /bin/bash
+    - home: /home/{{ username }}
 
 {% endfor %}
