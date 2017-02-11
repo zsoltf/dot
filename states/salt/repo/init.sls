@@ -6,3 +6,5 @@ saltstack-repo:
     - key_url: https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub
     - clean_file: True
     - order: 1
+    - require_in:
+      - pkg: salt-minion
