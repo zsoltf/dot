@@ -1,0 +1,13 @@
+{% set common = salt.grains.filter_by({
+  'Debian': {
+    'pkgs': [
+      'git',
+      'curl'
+    ],
+    'grains': {
+      'os_home': '/home',
+      'os_root': '/'
+    },
+  },
+  'default': {'pkgs': [], 'grains': {} }
+}, default='default') %}
