@@ -1,2 +1,2 @@
 include:
-  - .{{ grains.os_family }}
+  - .{{ grains.os_family }}.client
