@@ -1,0 +1,13 @@
+{% load_yaml as os_map %}
+
+  base:
+    package: elasticsearch
+    service: elasticsearch
+    config_path: /etc/elasticsearch/elasticsearch.yml
+  FreeBSD:
+    package: elasticsearch5
+    config_path: /usr/local/etc/elasticsearch/elasticsearch.yml
+
+{% endload %}
+
+{% set elastic = salt['grains.filter_by'](os_map, base='base') %}
