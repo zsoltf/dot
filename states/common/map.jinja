@@ -1,13 +1,17 @@
-{% set common = salt.grains.filter_by({
-  'Debian': {
-    'pkgs': [
-      'git',
-      'curl'
-    ],
-    'grains': {
-      'os_home': '/home',
-      'os_root': '/'
-    },
-  },
-  'default': {'pkgs': [], 'grains': {} }
-}, default='default') %}
+{% load_yaml as os_map %}
+
+  Debian:
+    pkgs:
+      - git
+      - curl
+    grains:
+      os_home: /home
+      os_root: /
+
+  default:
+    pkgs: []
+    grains: []
+
+{% endload %}
+
+{% set common = salt.grains.filter_by(os_map, default='default') %}

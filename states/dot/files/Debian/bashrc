@@ -1,0 +1,170 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+#############
+# PROMPT
+#############
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+#function prompt_right() {
+#  echo -e "\033[1;30m$(echo ${PWD})\033[0m"
+#}
+#
+#function prompt_left() {
+#  if [[ $last_command == 0 ]]
+#  then
+#    echo -e "\033[1;30;42mλ\033[0m"
+#  else
+#    echo -e "\033[1;41mλ\033[0m"
+#  fi
+#}
+#
+#function prompt() {
+#    last_command=$?
+#    compensate=4
+#    PS1=$(printf "%*s%s " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+#}
+
+c_red="\e[38;5;160m"
+c_red_inv="\e[38;5;234;48;5;160m"
+c_gray="\e[38;5;237;48m"
+c_orange="\e[38;5;166;48m"
+c_blue="\e[38;5;67;48m"
+c_off="\e[0m"
+#mintty
+c_green_cursor="\e]12;#FD9D4F\a"
+c_red_cursor="\e]12;#d70000\a"
+
+prompt() {
+  history -a; history -c; history -r
+  local COL=$(expr `tput cols` - 13 - `git branch | grep '*' | wc -m`)
+  red_prompt="$c_red λ $c_red_cursor$c_off"
+  green_prompt="$c_orange λ $c_green_cursor$c_off"
+  PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e $green_prompt; fi) '
+  tput sc
+  tput cuf $COL
+  echo -e "${c_gray}‹${c_blue}${PWD: -12}${c_off} $(git branch | grep '*' | cut -c2-)"
+  tput rc
+}
+PROMPT_COMMAND=prompt
+
+#############
+# SETTINGS
+#############
+
+# dircolors
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# vim
+export EDITOR="vim"
+#export PAGER="vimpager"
+#alias less="vimpager"
+set -o vi
+
+# disable flow control for interactive shells
+[[ $- == *i* ]] && stty -ixon
+
+# completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+
+# history
+HISTSIZE=10000
+HISTFILESIZE=500000
+HISTCONTROL=ignoreboth
+shopt -s histappend
+
+#############
+# PATH
+#############
+
+# ~/bin
+export PATH="$PATH:$HOME/bin"
+
+# go
+export GOPATH="$HOME/gopath"
+export PATH="$GOPATH/bin:$PATH"
+
+# Secrets
+[ -f ~/.config/.secrets ] && source ~/.config/.secrets
+
+#############
+# UTILS
+#############
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS=-x
+
+# xvfb
+alias xvfb='Xvfb :1 -screen 5 1024x768x8 &'
+#export DISPLAY=:1.5
+
+# fasd
+eval "$(fasd --init auto)"
+alias v='f -t -e vim -b viminfo'
+
+# rbenv
+export PATH="$PATH:$HOME/.rbenv/bin"
+eval "$(rbenv init -)"
+
+#############
+# SCRIPTS
+#############
+
+# Load any supplementary scripts
+for config in "$HOME"/.bashrc.d/*.bash ; do
+    source "$config"
+done
+unset -v config

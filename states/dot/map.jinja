@@ -1,0 +1,33 @@
+{% load_yaml as os_map %}
+
+  Windows:
+    - name: .bashrc
+      source: bashrc
+    - name: .gitconfig
+      source: gitconfig
+    - name: .tmux.conf
+      source: tmux.conf
+    - name: .minttyrc
+      source: minttyrc
+
+  Debian:
+    - name: .bashrc
+      source: bashrc
+    - name: .bashrc.d/aliases.bash
+      source: aliases.bash
+    - name: .tmux.conf
+      source: tmux.conf
+    - name: .gitconfig
+      source: gitconfig
+    - name: .gitconfig.local
+      source: gitconfig.local
+    - name: .inputrc
+      source: inputrc
+    - name: .config/xfce4/terminal/terminalrc
+      source: terminalrc
+    - name: .tmux.conf
+      source: tmux.conf
+
+{% endload %}
+
+{% set files = salt.grains.filter_by(os_map) %}

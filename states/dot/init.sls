@@ -1,19 +1,19 @@
 include:
+  - common
   - users
-  - cli
 
-{% from 'users/map.jinja' import users with context %}
-{% import 'cli/init.sls' as cli %}
+{% from "dot/map.jinja" import files with context %}
 
-{% set files = salt['grains.filter_by']( salt['pillar.get']('dot:lookup', {}) ) %}
-
-{% for user, details in users.items() %}
+{% for user, details in pillar.get('users', {}).items() %}
 {% for file in files %}
 
 manage {{ file.name }} for {{ user }}:
   file.managed:
-    - name: {{ [cli.home, user, file.name]|join("/") }}
-    - source: {{ file.source }}
+    - name: {{ [grains.get.os_home, user, file.name]|join("/") }}
+    - makedirs: True
+    - source: salt://dot/files/{{ [grains.get.os, file.source]|join("/") }}
+    - template: jinja
+    - user: {{ user }}
 
 {% endfor %}
 {% endfor %}
