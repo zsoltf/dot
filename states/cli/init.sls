@@ -1,25 +1,14 @@
-{% if salt['grains.get']('has-cygwin') %}
-
 include:
+
+{% if grains.os == 'Windows %}
+
   - .cygwin
 
-{% set root = 'C:/cyg' %}
-{% set home = 'C:/cyg/home' %}
+{%- else %}
 
-{% elif grains.os == 'Ubuntu' %}
-
-include:
-  - .cli
   - .dwm
   - .fonts
   - .st
-
-{% set root = '/' %}
-{% set home = '/home' %}
-
-{% else %}
-
-include:
-  - .cli
+  - .tools
 
 {% endif %}
