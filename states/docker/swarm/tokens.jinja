@@ -2,6 +2,6 @@
 
 CMD=`{{ command }}`
 DATA=`echo '{ "name": "{{ parameter }}", "value": "'$CMD'" }'`
-NODE={{ node }}
-URL={{ url }}/api/hosts/$NODE/parameters
+HOSTGROUP={{ hostgroup }}
+URL={{ url }}/api/hostgroups/$HOSTGROUP/parameters
 curl -XPOST -s -netrc -H "Content-Type: application/json" -d "$DATA" $URL

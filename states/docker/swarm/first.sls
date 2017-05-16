@@ -24,8 +24,8 @@ update-manager-docker_swarm_leader-parameter:
   cmd.script:
     - defaults:
         command: echo 'true'
+        hostgroup: 4
         parameter: docker-swarm-leader
-        node: {{ grains.id }}
         url: https://foreman.discdrive.bayphoto.com
     - source: salt://docker/swarm/tokens.jinja
     - template: jinja
@@ -34,8 +34,8 @@ update-manager-docker_manager_token-parameter:
   cmd.script:
     - defaults:
         command: docker swarm join-token manager -q
+        hostgroup: 4
         parameter: docker-manager-token
-        node: {{ grains.id }}
         url: https://foreman.discdrive.bayphoto.com
     - source: salt://docker/swarm/tokens.jinja
     - template: jinja
@@ -44,8 +44,8 @@ update-manager-docker_worker_token-parameter:
   cmd.script:
     - defaults:
         command: docker swarm join-token worker -q
+        hostgroup: 4
         parameter: docker-worker-token
-        node: {{ grains.id }}
         url: https://foreman.discdrive.bayphoto.com
     - source: salt://docker/swarm/tokens.jinja
     - template: jinja
