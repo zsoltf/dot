@@ -85,14 +85,14 @@ c_red_cursor="\e]12;#d70000\a"
 
 prompt() {
   history -a; history -c; history -r
-  local COL=$(expr `tput cols` - 13 - `git branch | grep '*' | wc -m`)
+  branchname=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [ -n "$branchname" ]; then
+    branch=" $branchname"
+  fi
   red_prompt="$c_red λ $c_red_cursor$c_off"
   green_prompt="$c_orange λ $c_green_cursor$c_off"
   PS1='$(ret=$?; if [ $ret -ne 0 ]; then echo -e $red_prompt; else echo -e $green_prompt; fi) '
-  tput sc
-  tput cuf $COL
-  echo -e "${c_gray}‹${c_blue}${PWD: -12}${c_off} $(git branch | grep '*' | cut -c2-)"
-  tput rc
+  echo -e "${c_gray}‹${c_blue}${PWD}${c_off} $branch"
 }
 PROMPT_COMMAND=prompt
 

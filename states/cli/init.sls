@@ -1,6 +1,6 @@
 include:
 
-{% if grains.os == 'Windows %}
+{% if grains.os == 'Windows' %}
 
   - .cygwin
 

@@ -9,9 +9,9 @@ include:
 
 manage {{ file.name }} for {{ user }}:
   file.managed:
-    - name: {{ [grains.get.os_home, user, file.name]|join("/") }}
+    - name: {{ [grains.get('os_home','/home'), user, file.name]|join("/") }}
     - makedirs: True
-    - source: salt://dot/files/{{ [grains.get.os, file.source]|join("/") }}
+    - source: salt://dot/files/{{ [grains.os_family, file.source]|join("/") }}
     - template: jinja
     - user: {{ user }}
 
