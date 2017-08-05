@@ -54,5 +54,4 @@ m()
 }
 alias man='m'
 
-# splunk
-alias splunk="sudo /opt/splunk/bin/splunk"
+bind -x '"\C-l": clear'

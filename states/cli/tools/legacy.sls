@@ -1,5 +1,3 @@
-{% from "users/map.jinja" import users with context %}
-
 install-fasd:
   cmd.run:
     - name: |
@@ -21,10 +19,6 @@ install-lsr:
     - cwd: /usr/local/bin
     - unless: which lsr
 
-install-dfc:
-  pkg.installed:
-    - name: dfc
-
 install-cdu:
   cmd.run:
     - name: |
@@ -37,24 +31,11 @@ install-cdu:
     - cwd: /tmp
     - unless: which cdu
 
-install-tree:
-  pkg.installed:
-    - name: tree
-
-install-tig:
-  pkg.installed:
-    - name: tig
-
-
-{% for user, details in users.items() %}
-
 install-fzf:
   cmd.run:
     - name: |
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
         ~/.fzf/install
     - cwd: ~
-    - runas: {{ user }}
     - unless: test -d ~/.fzf
 
-{% endfor %}

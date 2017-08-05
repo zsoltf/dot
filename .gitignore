@@ -1,5 +1,7 @@
+_*
+grains
+master
 minion
-proxy
 minion_id
 pki/
-_*
+proxy
