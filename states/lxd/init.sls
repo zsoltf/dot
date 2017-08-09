@@ -1,3 +1,3 @@
 include:
   - .packages
-  - .network
+  #- .network

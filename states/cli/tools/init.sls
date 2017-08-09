@@ -4,7 +4,10 @@ tools:
       - cmus
       - dfc
       - fish
+      - fortune-mod
+      - htop
       - mc
+      - net-tools
       - ncdu
       - ranger
       - tig

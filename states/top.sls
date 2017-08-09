@@ -5,6 +5,7 @@ base:
     - users
   'neutron':
     - db.elasticsearch
-    - dev.ruby.rbenv
+    - ruby.rbenv
   'carbon':
-    - editors.emacs
+    - editors.vim
+    - ruby.rbenv

@@ -1,20 +1,20 @@
 rbenv-deps:
   pkg.installed:
-    - names:
-      - bash
-      - git
-      - openssl
-      - libssl-dev
-      - make
-      - curl
+    - pkgs:
       - autoconf
+      - bash
       - bison
       - build-essential
+      - curl
+      - git
       - libffi-dev
-      - libyaml-dev
-      - libreadline6-dev
-      - zlib1g-dev
       - libncurses5-dev
+      - libreadline6-dev
+      - libssl-dev
+      - libyaml-dev
+      - make
+      - openssl
+      - zlib1g-dev
 
 ruby-2.3.1:
   rbenv.installed:

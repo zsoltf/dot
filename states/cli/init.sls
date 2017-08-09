@@ -6,9 +6,8 @@ include:
 
 {%- else %}
 
-  - .dwm
   - .fonts
-  - .st
+  - .scripts
   - .tools
 
 {% endif %}
