@@ -1,0 +1,27 @@
+[alias]
+  a = add
+  b = branch -v
+  c = commit -m
+  ca = commit -am
+  ci = commit
+  am = commit --amend
+  co = checkout
+  nb = checkout -b
+  d = diff
+  dc = diff --cached
+  pl = pull
+  ps = push
+  r = remote -v
+  s = status
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+[diff]
+  mnemonicprefix = true
+[push]
+  default = simple
+[pull]
+  rebase = true
+[include]
+  path = ~/.gitconfig.local

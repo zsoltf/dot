@@ -1,0 +1,10 @@
+--- dwm-start	2018-08-31 14:06:31.904402538 -0700
++++ dwm-start-new	2018-08-31 14:15:27.898548391 -0700
+@@ -42,6 +42,7 @@
+ 
+ function run_custom {
+     echo "${name}: Running user dwm..." 1>&2
++    [ -f ${bindir}/startup ] && source ${bindir}/startup
+     ${bindir}/dwm
+ }
+ 
