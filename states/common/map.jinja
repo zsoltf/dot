@@ -1,6 +1,6 @@
 {% load_yaml as os_map %}
 
-  Debian:
+  default:
     pkgs:
       - curl
       - git
@@ -8,10 +8,6 @@
     grains:
       os_home: /home
       os_root: /
-
-  default:
-    pkgs: []
-    grains: []
 
 {% endload %}
 

@@ -123,10 +123,14 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 # history
-HISTSIZE=10000
-HISTFILESIZE=500000
+HISTTIMEFORMAT='%F %T '
+HISTSIZE=-1
+HISTFILESIZE=-1
 HISTCONTROL=ignoreboth
+HISTIGNORE=?:??
 shopt -s histappend
+shopt -s cmdhist
+shopt -s lithist
 
 #############
 # PATH
@@ -169,22 +173,22 @@ alias v='f -t -e vim -b viminfo'
 shopt -s expand_aliases
 
 # ls
-#alias ls="lsr"
-#alias l="lsr -l"
-#alias lss="lsr -lS"
-#alias lsp="lsr -lP"
-#alias lst="lsr -lt"
-#alias lstp="lsr -ltP"
-#alias ll="lsr -al"
-#alias llt="lsr -alt"
-#alias lltp="lsr -altP"
-#alias llp="lsr -alP"
-#alias lls="lsr -alS"
-#alias llsp="lsr -alSP"
+alias ls="lsr"
+alias l="lsr -l"
+alias lss="lsr -lS"
+alias lsp="lsr -lP"
+alias lst="lsr -lt"
+alias lstp="lsr -ltP"
+alias ll="lsr -al"
+alias llt="lsr -alt"
+alias lltp="lsr -altP"
+alias llp="lsr -alP"
+alias lls="lsr -alS"
+alias llsp="lsr -alSP"
 
 #alias df="dfc"
 alias img="gotermimg -u=true"
-#alias du="cdu -i -d h"
+alias du="cdu -i -d h"
 alias g="git"
 alias gc="git commit -m"
 

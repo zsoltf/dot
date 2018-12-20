@@ -9,4 +9,9 @@ include:
 include:
   - .debian
 
+{% elif grains['os'] == 'Fedora' %}
+
+include:
+  - .fedora
+
 {% endif %}

@@ -1,4 +1,11 @@
-{% set user = grains.get('user') %}
+{% set user = pillar.get('user') %}
+
+include:
+  - ruby
+
+#
+# dwm on fedora
+#
 
 {% if grains.os == 'Fedora' %}
 
@@ -49,14 +56,25 @@ dwm_patch_pertag:
     - user: {{ user }}
     - makedirs: True
 
+{% endif %}
+
+
+#
+# configs
+#
+
 install_tools:
   pkg.installed:
     - pkgs:
+      - compton
       - fasd
+      - feh
       - htop
       - ranger
+      - slock
       - tig
       - tree
+      - xscreensaver
 
 bashrc:
   file.managed:
@@ -95,4 +113,68 @@ terminalrc:
     - user: {{ user }}
     - makedirs: True
 
-{% endif %}
+install-fzf:
+  cmd.run:
+    - name: |
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install --all --no-zsh --no-fish
+    - runas: {{ user }}
+    - cwd: ~
+    - unless: test -d ~/.fzf
+
+gtk-3-config:
+  file.managed:
+    - name: /home/{{ user }}/.config/gtk-3.0/settings.ini
+    - user: {{ user }}
+    - contents: |
+        [Settings]
+        gtk-application-prefer-dark-theme=1 
+
+gtk-4-config:
+  file.managed:
+    - name: /home/{{ user }}/.config/gtk-4.0/settings.ini
+    - user: {{ user }}
+    - contents: |
+        [Settings]
+        gtk-application-prefer-dark-theme=1 
+
+#
+# custom tools
+#
+
+{% load_yaml as tools %}
+
+  cdu: '0.37'
+  lsr: '0.1'
+
+{% endload %}
+
+{% macro extract_archive(name, version) %}
+extract_{{ name }}_{{ version }}_archive:
+  archive.extracted:
+    - name: /tmp/
+    - source: salt://cli/tools/{{ name }}-{{version}}.tar.gz
+{% endmacro %}
+
+{% macro install(name) %}
+install_{{ name }}:
+  cmd.run:
+    - name: |
+        cd *{{ name }}*
+        cp {{ name }} /usr/local/bin/
+    - cwd: /tmp/
+    - unless: which {{ name }}
+{% endmacro %}
+
+{% for name, version in tools.items() %}
+
+{{ extract_archive(name, version) }}
+{{ install(name) }}
+
+{% endfor %}
+
+# dmenu with history
+dmenu_run_history:
+  file.managed:
+    - name: /usr/bin/dmenu_run
+    - source: salt://cli/tools/dmenu_run_history
