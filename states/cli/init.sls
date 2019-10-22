@@ -71,6 +71,7 @@ install_tools:
       - feh
       - htop
       - ranger
+      - rofi
       - slock
       - tig
       - tree
@@ -178,3 +179,36 @@ dmenu_run_history:
   file.managed:
     - name: /usr/bin/dmenu_run
     - source: salt://cli/tools/dmenu_run_history
+
+
+# herbsluftwm
+install-herbstluftwm:
+  cmd.run:
+    - name: |
+        apt install -y glib2.0-dev libx11-dev libxext-dev libxinerama-dev
+        wget https://herbstluftwm.org/tarballs/herbstluftwm-0.7.2.tar.gz
+        tar xzf herbstluftwm-0.7.2.tar.gz
+        cd herbstluftwm-0.7.2/
+        make all-nodoc
+        make install-nodoc
+        cd ..
+        rm -rf herbstluftwm-0.7.2/
+    - cwd: /tmp
+    - unless: which herbstluftwm
+  file.managed:
+    - name: /home/{{ pillar.user }}/.config/herbstluftwm/autorun
+    - source: salt://cli/files/herbstluftwm
+
+# google chrome
+google-chrome:
+  pkgrepo.managed:
+    - humanname: Google Repo
+    - name: deb http://dl.google.com/linux/chrome/deb/ stable main
+    - file: /etc/apt/sources.list.d/google.list
+    - key_url: https://dl.google.com/linux/linux_signing_key.pub
+    #- keyid: D88E42B4
+    - clean_file: True
+    - require_in:
+      - pkg: google-chrome
+  pkg.installed:
+    - name: google-chrome-stable
