@@ -68,6 +68,8 @@ install_tools:
     - pkgs:
       - compton
       - fasd
+      - fd-find
+      - fish
       - feh
       - htop
       - ranger
@@ -76,6 +78,9 @@ install_tools:
       - tig
       - tree
       - xscreensaver
+      - xdotool
+      - rxvt-unicode
+      - xtitle
 
 bashrc:
   file.managed:
@@ -113,6 +118,12 @@ terminalrc:
     - source: salt://cli/files/terminalrc
     - user: {{ user }}
     - makedirs: True
+
+Xresources:
+  file.managed:
+    - name: {{ '/home/' ~ user ~ '/.Xresources' }}
+    - source: salt://cli/files/Xresources
+    - user: {{ user }}
 
 install-fzf:
   cmd.run:
@@ -203,12 +214,52 @@ install-herbstluftwm:
 google-chrome:
   pkgrepo.managed:
     - humanname: Google Repo
-    - name: deb http://dl.google.com/linux/chrome/deb/ stable main
-    - file: /etc/apt/sources.list.d/google.list
+    - name: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    - file: /etc/apt/sources.list.d/google-chrome.list
     - key_url: https://dl.google.com/linux/linux_signing_key.pub
-    #- keyid: D88E42B4
     - clean_file: True
     - require_in:
       - pkg: google-chrome
   pkg.installed:
     - name: google-chrome-stable
+
+# kubectl
+kubectl:
+  pkgrepo.managed:
+    - humanname: Google Kubernetes Repo
+    - name: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    - file: /etc/apt/sources.list.d/google-kubernetes.list
+    - key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    - clean_file: True
+    - require_in:
+      - pkg: kubectl
+  pkg.installed: []
+
+# google cloud
+google-cloud-sdk:
+  pkgrepo.managed:
+    - humanname: Google Cloud Repo
+    - name: deb http://packages.cloud.google.com/apt cloud-sdk main
+    - file: /etc/apt/sources.list.d/google-cloud.list
+    - key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    - clean_file: True
+    - require_in:
+      - pkg: google-cloud-sdk
+  pkg.installed: []
+
+
+# preview images in terminal
+
+install-viu:
+  cmd.run:
+    - name: |
+        wget https://github.com/atanunq/viu/releases/download/v0.2.2/viu
+    - cwd: /usr/local/bin
+    - unless: which viu
+
+install-lsix:
+  cmd.run:
+    - name: |
+        wget https://github.com/hackerb9/lsix/blob/master/lsix
+    - cwd: /usr/local/bin
+    - unless: which lsix

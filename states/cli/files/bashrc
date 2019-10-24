@@ -82,7 +82,6 @@ c_off="\e[0m"
 #mintty
 #c_green_cursor="\e]12;#FD9D4F\a"
 #c_red_cursor="\e]12;#d70000\a"
-
 prompt() {
   history -a; history -c; history -r
   branchname=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
@@ -97,7 +96,9 @@ prompt() {
   #echo -e "${c_gray}‹${c_blue}${PWD}${c_off} $branch"
 }
 PROMPT_COMMAND=prompt
-PS1='\[\e[38;5;237;48m\]‹$? \[\e[38;5;67;48m\]\w \[\e[0m\]$branch\n\[\e[38;5;166;48m\] λ \[\e[0m\]'
+PS1='\[\e]0;$BASH_COMMAND \w\a\]\[\e[38;5;237;48m\]‹$? \[\e[38;5;67;48m\]\w \[\e[38;5;237;48m\]\! \[\e[0m\]$branch\n\[\e[38;5;166;48m\] λ \[\e[0m\]'
+
+trap 'echo -ne "\033]0;$BASH_COMMAND\007"' DEBUG
 
 #############
 # SETTINGS
@@ -190,7 +191,7 @@ alias llsp="lsr -alSP"
 alias img="gotermimg -u=true"
 alias du="cdu -i -d h"
 alias g="git"
-alias gc="git commit -m"
+alias gcm="git commit -m"
 
 alias vc="vim ~/.vim/vimrc"
 alias vb="vim ~/.bashrc"
@@ -205,6 +206,11 @@ alias binit="bi && b package && echo vendor/ruby >> .gitignore"
 alias ber="be rspec"
 alias berp="be rake db:test:prepare && ber"
 
+# containers
+alias dc=docker-compose
+alias k=kubectl
+alias gc=gcloud
+
 # vim man
 m()
 {
@@ -217,3 +223,7 @@ m()
 alias man='m'
 
 bind -x '"\C-l": clear'
+
+# kubernetes
+source <(kubectl completion bash)
+complete -F __start_kubectl k

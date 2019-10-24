@@ -1,6 +1,6 @@
 {% load_yaml as pkgrepo %}
 
-url: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains.oscodename }} stable"
+url: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 key: https://download.docker.com/linux/ubuntu/gpg
 
 {% endload %}
@@ -18,3 +18,5 @@ docker-repo:
     - order: 1
     - require:
       - pkg: apt-transport-https
+    - require_in:
+      - pkg: docker
