@@ -23,7 +23,7 @@ hc keybind $Mod-Shift-e reload
 hc keybind $Mod-Shift-c close_and_remove
 hc keybind $Mod-Shift-Return spawn ${TERMINAL:-xfce4-terminal} # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-Escape spawn slock
-hc keybind $Mod-s spawn rofi -show
+hc keybind $Mod-s spawn rofi -show combi
 hc keybind $Mod-w spawn rofi -show window
 hc keybind $Mod-Shift-p emit_hook togglehidepanel
 
@@ -248,3 +248,4 @@ hc detect_monitors
 
 compton &
 source ~/.fehbg
+xrdb -merge ~/.Xresources

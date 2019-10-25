@@ -145,6 +145,7 @@ gtk-3-config:
 gtk-4-config:
   file.managed:
     - name: /home/{{ user }}/.config/gtk-4.0/settings.ini
+    - makedirs: True
     - user: {{ user }}
     - contents: |
         [Settings]
@@ -200,14 +201,18 @@ install-herbstluftwm:
         wget https://herbstluftwm.org/tarballs/herbstluftwm-0.7.2.tar.gz
         tar xzf herbstluftwm-0.7.2.tar.gz
         cd herbstluftwm-0.7.2/
-        make all-nodoc
-        make install-nodoc
+        make
+        make install
         cd ..
         rm -rf herbstluftwm-0.7.2/
+        cp /usr/local/share/xsessions/herbstluftwm.desktop /usr/share/xsessions/
     - cwd: /tmp
     - unless: which herbstluftwm
   file.managed:
-    - name: /home/{{ pillar.user }}/.config/herbstluftwm/autorun
+    - name: /home/{{ pillar.user }}/.config/herbstluftwm/autostart
+    - makedirs: True
+    - mode: 775
+    - user: {{ user }}
     - source: salt://cli/files/herbstluftwm
 
 # google chrome
@@ -254,6 +259,7 @@ install-viu:
   cmd.run:
     - name: |
         wget https://github.com/atanunq/viu/releases/download/v0.2.2/viu
+        chmod 775 viu
     - cwd: /usr/local/bin
     - unless: which viu
 
@@ -261,5 +267,6 @@ install-lsix:
   cmd.run:
     - name: |
         wget https://github.com/hackerb9/lsix/blob/master/lsix
+        chmod 775 lsix
     - cwd: /usr/local/bin
     - unless: which lsix

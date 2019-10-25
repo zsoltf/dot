@@ -1,9 +1,12 @@
+include:
+  - .powerline
+
 fonts:
   archive.extracted:
-    - name: /usr/share/fonts/
+    - name: /usr/local/share/fonts/
     - enforce_toplevel: False
     - source: salt://fonts/fonts.tar.gz
-  cmd.watch:
+  cmd.run:
     - name: fc-cache -f
-    - require:
+    - onchanges:
       - archive: fonts

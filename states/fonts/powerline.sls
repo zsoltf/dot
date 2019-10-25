@@ -5,5 +5,5 @@ install-powerline-fonts:
         ./fonts/install.sh
         rm -rf ./fonts
     - cwd: /tmp
-    - runas: krieger
+    - runas: {{ pillar.get('user') }}
     - unless: test -d ~/.local/share/fonts

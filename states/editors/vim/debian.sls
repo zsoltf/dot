@@ -1,3 +1,5 @@
+{% set user = pillar.get('user') %}
+
 vim dependencies:
   pkg.installed:
     - pkgs:
@@ -21,7 +23,7 @@ clone-vim-repo:
     - cwd: /tmp
     - shell: /bin/bash
     - timeout: 300
-    - unless: which vim || test -d /tmp/vim
+    - unless: which vim
 
 configure-vim:
   cmd.run:
@@ -58,7 +60,7 @@ clone-vim-config:
   cmd.run:
     - name: git clone https://github.com/zsoltf/dot-vim.git ~/.vim
     - cwd: ~
-    - runas: {{ pillar.user }}
+    - runas: {{ user }}
     - shell: /bin/bash
     - timeout: 300
     - unless: test -d ~/.vim
@@ -66,24 +68,31 @@ clone-vim-config:
 clone-vundle:
   cmd.run:
     - name: git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    - runas: {{ pillar.user }}
+    - runas: {{ user }}
     - shell: /bin/bash
     - timeout: 300
-    - unless: test -d ~/.vim/bundle/vundle
-    - require:
-        - clone-vim-config
+    - onchanges:
+      - cmd: clone-vim-config
 
 install-vim-plugins:
   cmd.run:
     - name: vim -e +BundleInstall +qall
-    - runas: {{ pillar.user }}
+    - runas: {{ user }}
     - shell: /bin/bash
     - timeout: 300
-    - require:
-        - clone-vundle
+    - onchanges:
+      - cmd: clone-vim-config
 
 make-vimproc:
   cmd.run:
-    - name: ~/.vim/bundle/vimproc.vim/make
-    - runas: {{ pillar.user }}
-    - cwd: ~
+    - name: make
+    - runas: {{ user }}
+    - cwd: /home/{{ user }}/.vim/bundle/vimproc.vim
+    - onchanges:
+      - cmd: clone-vim-config
+
+chown-vim-config:
+  cmd.run:
+    - name: chown -R {{ user }} /home/{{ user }}/.vim
+    - onchanges:
+      - cmd: clone-vim-config
