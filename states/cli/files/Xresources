@@ -1,71 +1,57 @@
-!! from Xdefaults:
-Xcursor*theme: Obsidian
-
-xterm*activeIcon: true
-
-! Use a nice truetype font and size by default... 
 xterm*faceName: Source Code Pro for Powerline
 xterm*faceSize: 16
-
 xterm*loginshell: true
-
 xterm*savelines: 16384
+xterm*activeIcon: true
 
-! double-click to select whole URLs :D
+! double-click to select whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 xterm*ScrollBar: false
-
-! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
 
-!! colorscheme
-xterm*background:  #000000
+!! maui colorscheme
+xterm*background:  #101010
 xterm*colorUL:  #cbffff
-xterm*cursorColor:  #c4a000
+xterm*cursorColor:  #df5f00
 xterm*foreground:  #eeeeec
 xterm*underlineColor:  #cbffff
-xterm*xtermbackground:  #000000
+xterm*xtermbackground: #000000
 xterm*color0:  #000000
-xterm*color1:  #cc0000
-xterm*color2:  #4e9a06
-xterm*color3:  #c4a000
-xterm*color4:  #3465a4
+xterm*color1:  #df005f
+xterm*color2:  #87af5f
+xterm*color3:  #ff8700
+xterm*color4:  #5f87af
 xterm*color5:  #75507b
-xterm*color6:  #06989a
+xterm*color6:  #5f87af
 xterm*color7:  #d3d7cf
 xterm*color8:  #555753
-xterm*color9:  #ef2929
-xterm*color10:  #8ae234
-xterm*color11:  #fce94f
-xterm*color12:  #739fcf
+xterm*color9:  #87005f
+xterm*color10:  #87af87
+xterm*color11:  #afaf87
+xterm*color12:  #5fafff
 xterm*color13:  #ad7fa8
-xterm*color14:  #34e2e2
+xterm*color14:  #5fafff
 xterm*color15:  #eeeeec
 
-!!
-!! Fonts
-!!
-
 Xft.dpi: 96
+Xft.autohint: 1
+!Xft.antialias: 1
+Xft.hinting: 1
+Xft.rgba: rgb
 
-Xft.autohint:           1
-!Xft.antialias:          1
-Xft.hinting:            1
-Xft.rgba:               rgb
-!
-! !Xft.hintstyle:          hintslight
-Xft.hintstyle:          hintmedium
-!Xft.hintstyle:          hintfull
+!Xft.hintstyle: hintslight
+Xft.hintstyle: hintmedium
+!Xft.hintstyle: hintfull
 
 XTerm*decTerminalID: vt340
 XTerm*numColorRegisters: 256
 
-!*VT100.colorBDMode:     true
+!*VT100.colorBDMode: true
 !*colorBDMode: true
-!!*VT100.colorBD:         red
-!*VT100.colorULMode:     true
+!!*VT100.colorBD: red
+!*VT100.colorULMode: true
 !*colorULMode: true
-!!*VT100.colorUL:         cyan
+!!*VT100.colorUL: cyan
 !!*VT100.veryBoldColors: 6
 !*highlightColorMode: true
